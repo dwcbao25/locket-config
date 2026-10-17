@@ -6,7 +6,7 @@ hostname = %APPEND% ://revenuecat.com, ://googleapis.com
 
 [Script]
 # 1. Mã can thiệp hệ thống thanh toán RevenueCat để mở khóa tính năng Gold Premium
-revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=locket_gold, requires-body=true, max-size=-1, timeout=60
+revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/dwcbao25/locket-vip/refs/heads/main/locket_gold.js, requires-body=true, max-size=-1, timeout=60
 
 # 2. Mã xóa Header chống nghẽn / xóa cache dữ liệu thanh toán cũ
 deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=deleteHeader.js, timeout=60
