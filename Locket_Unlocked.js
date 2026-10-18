@@ -277,7 +277,7 @@ if (ua.includes("Locket")) {
             uid: "midautumn_2026",
             // url: "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
             // url: "https://i.ibb.co/RTm5P1n9/kitty-1.png",
-            url: "https://i.ibb.co/hx13Sdtj/1792253419389-4728184376309827610-4728184376309827610-cb98c2887defa0e0da6a0cf56391f392.jpg",
+            url: "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
             use_local_time_zone: true,
             placement: "below",
             start_at: "2020-01-01T00:00:00",
@@ -399,7 +399,7 @@ if (ua.includes("Locket")) {
                 section: "🎨 Decorative by em mit",
                 items: [
                     { overlay_id: "caption:em mit cute", source: "remote", caption: { background: { colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] }, max_lines: 1, text: "💻 em mit cute", text_color: "#183153", type: "static_content" } },
-                    { overlay_id: "caption:bangoccho", source: "remote", caption: { background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"] }, max_lines: 1, text: "Bá Ngọc Chó", text_color: "#633B24", type: "static_content" } },
+                    { overlay_id: "caption:bangoccho", source: "remote", caption: { background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"] }, max_lines: 1, text: "bngi xau xi 😆 ", text_color: "#633B24", type: "static_content" } },
                     { overlay_id: "caption:tuat", source: "remote", caption: { background: { colors: ["#2C1A0E", "#5D4037", "#D7A86E"] }, icon: { data: "🐕", type: "emoji" }, max_lines: 1, text: "Tuất", text_color: "#FFFFFFE6", type: "static_content" } },
                     { overlay_id: "caption:snake_vibes", source: "remote", caption: { background: { colors: ["#2E7D32", "#66BB6A"] }, icon: { data: "🐍", type: "emoji" }, max_lines: 1, text: "Snake Vibes", localized_text: { en: "Snake Vibes", vn: "Chất rắn" }, text_color: "#FFFFFFE6", type: "static_content" } },
                     { overlay_id: "caption:love_km_somuch", source: "remote", caption: { background: { colors: ["#FFB6C1", "#FF69B4", "#FF1493"] }, icon: { data: "🧸", type: "emoji" }, max_lines: 1, text: "love km so much 💖", text_color: "#FFFFFFE6", type: "static_content" } },
