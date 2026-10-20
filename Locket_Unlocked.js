@@ -108,7 +108,10 @@ if (ua.includes("Locket")) {
             srgb: true,
             lanczos: true,
             quality_mbps: 0.6,
-            qualityMbps: 0.6 
+            qualityMbps: 0.6,
+            supported_aspect_ratios: ["1:1", "6:19", "19:6"],
+            aspect_ratio_6_19_enabled: true,
+            aspect_ratio_19_6_enabled: true
       }),
         camera_roll: JSON.stringify({
             gold_max_duration: 60.0,
@@ -120,6 +123,8 @@ if (ua.includes("Locket")) {
             trim_max_duration: 60.0,
             trimMaxDuration: 60.0,
             camera_roll_max_duration: 60.0,
+            max_upload_size_mb: 128.0,
+            maxUploadSizeMB: 128.0,
             quality_mbps: 0.6,
             qualityMbps: 0.6,
             flash_button: true
@@ -167,7 +172,9 @@ if (ua.includes("Locket")) {
         upload_main_image_quality: "0.6",
         upload_main_image_size: "1440",
         upload_thumbnail_image_quality: "0.8",
-        upload_thumbnail_image_size: "1020"
+        upload_thumbnail_image_size: "1020",
+        video_aspect_ratio_6_19_enabled: "true",
+        video_aspect_ratio_19_6_enabled: "true"
     });
 
     // ============================================================
@@ -277,7 +284,7 @@ if (ua.includes("Locket")) {
             uid: "midautumn_2026",
             // url: "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
             // url: "https://i.ibb.co/RTm5P1n9/kitty-1.png",
-            url: "https://i.ibb.co/zTQqc4mK/khung-ins-1.png",
+            url: "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
             use_local_time_zone: true,
             placement: "below",
             start_at: "2020-01-01T00:00:00",
@@ -307,7 +314,10 @@ if (ua.includes("Locket")) {
         }),
         qr_code_config: JSON.stringify({ profile_enabled: true, scanning_enabled: true }),
         custom_profile_pics: "true",
-        profile_menu_v2_enabled: "true"
+        profile_menu_v2_enabled: "true",
+        profile_video_cover_enabled: "true",
+        video_profile_cover_enabled: "true",
+        modern_profile_ui_enabled: "true"
     });
 
     // ============================================================
@@ -352,7 +362,7 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 8. OVERLAY & CUSTOM CAPTIONS
+    // 8. OVERLAY & CUSTOM CAPTIONS (GIỮ NGUYÊN 100% KHO CAPTION GỐC)
     // ============================================================
     Object.assign(obj.entries, {
         overlay_navigator_enabled: "true",
@@ -399,10 +409,10 @@ if (ua.includes("Locket")) {
                 section: "🎨 Decorative by em mit",
                 items: [
                     { overlay_id: "caption:em mit cute", source: "remote", caption: { background: { colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] }, max_lines: 1, text: "💻 em mit cute", text_color: "#183153", type: "static_content" } },
-                    { overlay_id: "caption:bangoccho", source: "remote", caption: { background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"] }, max_lines: 1, text: "25 12 2008", text_color: "#633B24", type: "static_content" } },
+                    { overlay_id: "caption:bangoccho", source: "remote", caption: { background: { colors: ["#FFD6A5", "#FFF1A8", "#FFC4D6"] }, max_lines: 1, text: "bá ngọc chó", text_color: "#633B24", type: "static_content" } },
                     { overlay_id: "caption:tuat", source: "remote", caption: { background: { colors: ["#2C1A0E", "#5D4037", "#D7A86E"] }, icon: { data: "🐕", type: "emoji" }, max_lines: 1, text: "Tuất", text_color: "#FFFFFFE6", type: "static_content" } },
                     { overlay_id: "caption:snake_vibes", source: "remote", caption: { background: { colors: ["#2E7D32", "#66BB6A"] }, icon: { data: "🐍", type: "emoji" }, max_lines: 1, text: "Snake Vibes", localized_text: { en: "Snake Vibes", vn: "Chất rắn" }, text_color: "#FFFFFFE6", type: "static_content" } },
-                    { overlay_id: "caption:love_km_somuch", source: "remote", caption: { background: { colors: ["#FFB6C1", "#FF69B4", "#FF1493"] }, icon: { data: "🧸", type: "emoji" }, max_lines: 1, text: "love km so much 💖", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:love_km_somuch", source: "remote", caption: { background: { colors: ["#FFB6C1", "#FF69B4", "#FF1493"] }, icon: { data: "🧸", type: "emoji" }, max_lines: 1, text: "Love km so much 💖", text_color: "#FFFFFFE6", type: "static_content" } },
                     { overlay_id: "caption:locketgolibemmit", source: "remote", caption: { background: { colors: ["#263238", "#455A64"] }, icon: { data: "👻", type: "emoji" }, max_lines: 1, text: "locketgold ib em mitt", text_color: "#FFFFFFE6", type: "static_content" } }
                 ]
 
@@ -439,7 +449,7 @@ if (ua.includes("Locket")) {
                 ]
             },
             {
-                section: "🎨 Gen Z & Xéo xắt 💅",
+                section: "🎨 GenZ & Xéo xắt 💅",
                 items: [
                     { overlay_id: "caption:feeling_cute", source: "remote", caption: { background: { colors: ["#F8BBD0", "#E91E63"] }, icon: { data: "🌷", type: "emoji" }, max_lines: 1, text: "Feeling Cute", localized_text: { en: "Feeling Cute", vn: "Cảm thấy dthw" }, text_color: "#FFFFFFE5", type: "static_content" } },
                     { overlay_id: "caption:cutie_pie", source: "remote", caption: { background: { colors: ["#FFDEE9", "#FFB6C1", "#FF9AA2"] }, icon: { data: "🎀", type: "emoji" }, max_lines: 1, text: "Cutie Pie 🌸", text_color: "#FFFFFFE6", type: "static_content" } },
@@ -640,7 +650,7 @@ if (ua.includes("Locket")) {
                     { overlay_id: "caption:pin_nguoi_dung_con_1", source: "remote", caption: { background: { colors: ["#D62828", "#F77F00", "#FCBF49"] }, icon: { data: "🚨", type: "emoji" }, max_lines: 1, text: "cảnh báo: pin người dùng còn 1%", text_color: "#651515", type: "static_content" } },
                     { overlay_id: "caption:nhiem_vu_hom_nay_nam_im", source: "remote", caption: { background: { colors: ["#168AAD", "#52B69A", "#D9ED92"] }, icon: { data: "🛌", type: "emoji" }, max_lines: 1, text: "nhiệm vụ hôm nay: nằm im", text_color: "#17483F", type: "static_content" } },
                     { overlay_id: "caption:mai_tinh_nay_ngu", source: "remote", caption: { background: { colors: ["#343A40", "#6C757D", "#ADB5BD"] }, icon: { data: "💀", type: "emoji" }, max_lines: 1, text: "mai tính, nay ngủ", text_color: "#FFFFFF", type: "static_content" } },
-                    { overlay_id: "caption:offline_de_hoi_sinh", source: "remote", caption: { background: { colors: ["#006D77", "#83C5BE", "#EDF6F9"] }, icon: { data: "💤", type: "emoji" }, max_lines: 1, text: "offline để hồi sinh", text_color: "#164E52", type: "static_content" } },
+                    { overlay_id: "caption:offline_de_hoi_sinh", source: "remote", caption: { background: { colors: ["#006D77", "#83C5BE", "#EDF6F9"] }, icon: { data: "💤", type: "emoji" }, max_lines: 1, text: "offline để hồi sinh", text_color: "#164E52", type: "static_content" } }
                 ]
             }
         ])
