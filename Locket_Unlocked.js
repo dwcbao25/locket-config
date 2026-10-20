@@ -1,9 +1,8 @@
 // ============================================================
-// Locket Remote Config Rewrite
+// Locket Remote Config Rewrite - ULTIMATE FIXED VERSION
 // Endpoint: firebaseremoteconfig.googleapis.com
 // Dùng cho: Loon / Quantumult X / Surge / Shadowrocket
-// Tác giả: Trần Đức Bảo 
-// Vui lòng khi chia sẽ hoặc lấy về, làm ơn để nguồn giúp mình. Mình cảm ơn
+// Tác giả gốc: Trần Đức Bảo | Đã fix & tối ưu toàn diện bởi Mít & AI
 // ============================================================
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
@@ -54,7 +53,11 @@ if (ua.includes("Locket")) {
             tag_style: "gold_gradient",
             title: "Kích hoạt locket gold thành công bởi em mit cute kakaka😎",
             feature_set: [
-               
+                "app_icon_picker",
+                "camera_roll",
+                "long_captions",
+                "longer_video",
+                "custom_widget_frames"
             ],
             primary_button_title: "Xong",
             campaign: "locket_gold_welcome_v3",
@@ -65,7 +68,6 @@ if (ua.includes("Locket")) {
         android_subscribe_gold_button_enabled: "false",
         profile_badge_visible: "true",
         lunar_new_year_app_icon_enabled: "true",
-       
         settings_facebook_url: "https://www.facebook.com/dwcbao6"
     });
 
@@ -112,7 +114,7 @@ if (ua.includes("Locket")) {
             supported_aspect_ratios: ["1:1", "6:19", "19:6"],
             aspect_ratio_6_19_enabled: true,
             aspect_ratio_19_6_enabled: true
-      }),
+        }),
         camera_roll: JSON.stringify({
             gold_max_duration: 60.0,
             goldMaxDuration: 60.0,
@@ -270,7 +272,7 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 6. WIDGET, THÔNG BÁO & GIAO DIỆN (JOURNAL / PROFILE)
+    // 6. WIDGET, THÔNG BÁO & GIAO DIỆN
     // ============================================================
     Object.assign(obj.entries, {
         widget_frame_event_max_images: "5",
@@ -282,8 +284,6 @@ if (ua.includes("Locket")) {
         widget_sync_token_reload_mode: "clearTokenNever",
         widget_frame_event: JSON.stringify({
             uid: "midautumn_2026",
-            // url: "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
-            // url: "https://i.ibb.co/RTm5P1n9/kitty-1.png",
             url: "https://i.ibb.co/1Yt1Dzzy/Shin-chan-1.png",
             use_local_time_zone: true,
             placement: "below",
@@ -362,7 +362,7 @@ if (ua.includes("Locket")) {
     });
 
     // ============================================================
-    // 8. OVERLAY & CUSTOM CAPTIONS (GIỮ NGUYÊN 100% KHO CAPTION GỐC)
+    // 8. OVERLAY & CUSTOM CAPTIONS (GIỮ NGUYÊN 100% KHO CAPTION)
     // ============================================================
     Object.assign(obj.entries, {
         overlay_navigator_enabled: "true",
@@ -415,7 +415,6 @@ if (ua.includes("Locket")) {
                     { overlay_id: "caption:love_km_somuch", source: "remote", caption: { background: { colors: ["#FFB6C1", "#FF69B4", "#FF1493"] }, icon: { data: "🧸", type: "emoji" }, max_lines: 1, text: "Love km so much 💖", text_color: "#FFFFFFE6", type: "static_content" } },
                     { overlay_id: "caption:locketgolibemmit", source: "remote", caption: { background: { colors: ["#263238", "#455A64"] }, icon: { data: "👻", type: "emoji" }, max_lines: 1, text: "locketgold ib em mitt", text_color: "#FFFFFFE6", type: "static_content" } }
                 ]
-
             },
             {
                 section: "🎨 Tình yêu & Cơm chó 💕",
