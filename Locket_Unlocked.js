@@ -379,14 +379,14 @@ Object.assign(obj.entries, {
             section: "🎨 Decorative by em mit",
             items: [
                 { overlay_id: "caption:duyvinh09", source: "remote", caption: { background: { colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] }, icon: { data: "person.fill", type: "sf_symbol", color: "#183153" }, max_lines: 1, text: "locketgold by emmit", text_color: "#183153", type: "static_content" } },
-                { overlay_id: "caption:ngonnn", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7B2", "#FFDAC1"] }, max_lines: 1, text: "ngonnn vll 🤤", text_color: "#D72638", type: "static_content" } },
-                { overlay_id: "caption:deppvaii", source: "remote", caption: { background: { colors: ["#E2F0CB", "#B5EAD7", "#C7CEEA"] }, max_lines: 1, text: "deppp vaii 😍", text_color: "#3A506B", type: "static_content" } },
-                { overlay_id: "caption:phinn", source: "remote", caption: { background: { colors: ["#FFDAC1", "#E2F0CB", "#FF9AA2"] }, max_lines: 1, text: "phìnn 🤭", text_color: "#6B4226", type: "static_content" } },
-                { overlay_id: "caption:coikiamia", source: "remote", caption: { background: { colors: ["#C7CEEA", "#E8C5FF", "#FFC6FF"] }, max_lines: 1, text: "coii nó kìa mắ:)) 👀", text_color: "#4A0E4E", type: "static_content" } },
-                { overlay_id: "caption:cutequoo", source: "remote", caption: { background: { colors: ["#FFB7B2", "#FF9AA2", "#FFDAC1"] }, max_lines: 1, text: "cuteee quoo 🥰", text_color: "#8E2800", type: "static_content" } },
-                { overlay_id: "caption:mammmamm", source: "remote", caption: { background: { colors: ["#FFF1C1", "#FFD1DC", "#E2F0CB"] }, max_lines: 1, text: "mămm mămm 😋", text_color: "#5C4033", type: "static_content" } },
-                { overlay_id: "caption:tenkiuu", source: "remote", caption: { background: { colors: ["#B5EAD7", "#C7CEEA", "#FF9AA2"] }, max_lines: 1, text: "ténn kìuuu ✨", text_color: "#1C3144", type: "static_content" } },
-                { overlay_id: "caption:sunnvl", source: "remote", caption: { background: { colors: ["#E8C5FF", "#FFC6FF", "#FFFFD1"] }, max_lines: 1, text: "sứnn vl 🙈", text_color: "#4B0082", type: "static_content" } }
+                { overlay_id: "caption:ngonnn", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7B2", "#FFDAC1"] }, max_lines: 1, text: "ngonnn vll ", text_color: "#D72638", type: "static_content" } },
+                { overlay_id: "caption:deppvaii", source: "remote", caption: { background: { colors: ["#E2F0CB", "#B5EAD7", "#C7CEEA"] }, max_lines: 1, text: "deppp vaii ", text_color: "#3A506B", type: "static_content" } },
+                { overlay_id: "caption:phinn", source: "remote", caption: { background: { colors: ["#FFDAC1", "#E2F0CB", "#FF9AA2"] }, max_lines: 1, text: "phìnn ", text_color: "#6B4226", type: "static_content" } },
+                { overlay_id: "caption:coikiamia", source: "remote", caption: { background: { colors: ["#C7CEEA", "#E8C5FF", "#FFC6FF"] }, max_lines: 1, text: "coii nó kìa mắ:)) ", text_color: "#4A0E4E", type: "static_content" } },
+                { overlay_id: "caption:cutequoo", source: "remote", caption: { background: { colors: ["#FFB7B2", "#FF9AA2", "#FFDAC1"] }, max_lines: 1, text: "cuteee quoo ", text_color: "#8E2800", type: "static_content" } },
+                { overlay_id: "caption:mammmamm", source: "remote", caption: { background: { colors: ["#FFF1C1", "#FFD1DC", "#E2F0CB"] }, max_lines: 1, text: "mămm mămm ", text_color: "#5C4033", type: "static_content" } },
+                { overlay_id: "caption:tenkiuu", source: "remote", caption: { background: { colors: ["#B5EAD7", "#C7CEEA", "#FF9AA2"] }, max_lines: 1, text: "ténn kìuuu 🐌 ", text_color: "#1C3144", type: "static_content" } },
+                { overlay_id: "caption:sunnvl", source: "remote", caption: { background: { colors: ["#E8C5FF", "#FFC6FF", "#FFFFD1"] }, max_lines: 1, text: "sứnn vl ", text_color: "#4B0082", type: "static_content" } }
             ]
         }
     ])
