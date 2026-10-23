@@ -376,9 +376,9 @@ Object.assign(obj.entries, {
             ]
         },
         {
-            section: "🎨 Decorative by em mit",
+            section: "👨🏻‍💻 locketgold by dwcbao",
             items: [
-                { overlay_id: "caption:duyvinh09", source: "remote", caption: { background: { colors: ["#B8E7FF", "#A8F5D0", "#DCCBFF"] }, icon: { data: "person.fill", type: "sf_symbol", color: "#183153" }, max_lines: 1, text: "locketgold by emmit", text_color: "#183153", type: "static_content" } },
+                
                 { overlay_id: "caption:ngonnn", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7B2", "#FFDAC1"] }, max_lines: 1, text: "ngonnn vll ", text_color: "#D72638", type: "static_content" } },
                 { overlay_id: "caption:deppvaii", source: "remote", caption: { background: { colors: ["#E2F0CB", "#B5EAD7", "#C7CEEA"] }, max_lines: 1, text: "deppp vaii ", text_color: "#3A506B", type: "static_content" } },
                 { overlay_id: "caption:phinn", source: "remote", caption: { background: { colors: ["#FFDAC1", "#E2F0CB", "#FF9AA2"] }, max_lines: 1, text: "phìnn ", text_color: "#6B4226", type: "static_content" } },
