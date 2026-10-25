@@ -341,9 +341,14 @@ if (ua.includes("Locket")) {
         onboarding_contact_permission_step: "true",
     });
 
-  // ============================================================
-// 8. OVERLAY & CUSTOM CAPTIONS
 // ============================================================
+// Locket Remote Config Custom Captions by Mít
+// ============================================================
+
+var obj = JSON.parse($response.body);
+
+obj.entries = obj.entries || {};
+
 Object.assign(obj.entries, {
     overlay_navigator_enabled: "true",
     overlays_v2_config: JSON.stringify({ suggestions_enabled: true }),
@@ -354,7 +359,8 @@ Object.assign(obj.entries, {
     overlay_dynamic_captions: JSON.stringify([
         "standard", "poll", "color_palette", "review", "music", "location",
         "weather", "time", "streak", "star_sign", "party_time", "locket_count",
-        "good_morning", "goodnight", "ootd", "miss_you", "custom", "halloween_2026"
+        "good_morning", "goodnight", "ootd", "miss_you", "custom", "halloween_2026",
+        "ngonnn", "deppvaii", "phinn", "coikiamia", "cutequoo", "mammmamm", "tenkiuu", "sunnvl"
     ]),
     overlay_items: JSON.stringify([
         {
@@ -378,7 +384,6 @@ Object.assign(obj.entries, {
         {
             section: "👨🏻‍💻 locketgold by dwcbao",
             items: [
-                
                 { overlay_id: "caption:ngonnn", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7B2", "#FFDAC1"] }, max_lines: 1, text: "ngonnn vll ", text_color: "#D72638", type: "static_content" } },
                 { overlay_id: "caption:deppvaii", source: "remote", caption: { background: { colors: ["#E2F0CB", "#B5EAD7", "#C7CEEA"] }, max_lines: 1, text: "deppp vaii ", text_color: "#3A506B", type: "static_content" } },
                 { overlay_id: "caption:phinn", source: "remote", caption: { background: { colors: ["#FFDAC1", "#E2F0CB", "#FF9AA2"] }, max_lines: 1, text: "phìnn ", text_color: "#6B4226", type: "static_content" } },
@@ -393,9 +398,9 @@ Object.assign(obj.entries, {
                 { overlay_id: "caption:xinh_dep_tuyet_voi", source: "remote", caption: { background: { colors: ["#FC5C7D", "#6A82FB"] }, icon: { data: "💅", type: "emoji" }, max_lines: 1, text: "Xinh đẹp tuyệt vời", text_color: "#FFFFFFE6", type: "static_content" } },
                 { overlay_id: "caption:cai_net_ky", source: "remote", caption: { background: { colors: ["#B7D96C", "#D9ED9A", "#F1F7C8"] }, icon: { data: "😒", type: "emoji" }, max_lines: 1, text: "cái nết kỳ ghê", text_color: "#35451B", type: "static_content" } },
                 { overlay_id: "caption:quan_trong_lam", source: "remote", caption: { background: { colors: ["#7566D9", "#9B8AFB", "#D2C8FF"] }, icon: { data: "💅", type: "emoji" }, max_lines: 1, text: "ủa tưởng mình quan trọng lắm?", text_color: "#FFFFFF", type: "static_content" } }
-                
             ]
         }
     ])
 });
+
 $done({ body: JSON.stringify(obj) });
