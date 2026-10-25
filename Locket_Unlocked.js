@@ -1,16 +1,14 @@
 // ============================================================
-// Locket Remote Config Rewrite
+// Locket Remote Config Rewrite & Custom Captions
 // Endpoint: firebaseremoteconfig.googleapis.com
-// Dùng cho: Loon / Quantumult X / Surge / Shadowrocket
-// Tác giả: em mit ợ ợ 
-// Vui lòng khi chia sẽ hoặc lấy về, làm ơn để nguồn giúp mình. Mình cảm ơn
+// Tác giả: Mít
 // ============================================================
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
 var obj = JSON.parse($response.body);
 
 if (ua.includes("Locket")) {
-    obj.Attention = "chuc mừng b!";
+    obj.Attention = "chúc mừng b!";
     obj.entries = obj.entries || {};
 
     // ============================================================
@@ -49,7 +47,7 @@ if (ua.includes("Locket")) {
             profile_banner: true
         }),
         feature_discovery_popup_config: JSON.stringify({
-            tag: "LOCKET GOLD BY EM MÍT",
+            tag: "LOCKET GOLD BY MÍT",
             tag_gradient: true,
             tag_style: "gold_gradient",
             title: "Có Locket Gold rồi đó 😎",
@@ -266,8 +264,6 @@ if (ua.includes("Locket")) {
         widget_frame_event: JSON.stringify({
             uid: "midautumn_2026",
             url: "https://i.ibb.co/RTm5P1n9/kitty-1.png",
-            // url: "https://i.ibb.co/RTm5P1n9/kitty-1.png",
-            // url: "https://i.ibb.co/JjLZ3cvD/khung-ins.png",
             use_local_time_zone: true,
             placement: "below",
             start_at: "2020-01-01T00:00:00",
@@ -341,66 +337,63 @@ if (ua.includes("Locket")) {
         onboarding_contact_permission_step: "true",
     });
 
-// ============================================================
-// Locket Remote Config Custom Captions by Mít
-// ============================================================
-
-var obj = JSON.parse($response.body);
-
-obj.entries = obj.entries || {};
-
-Object.assign(obj.entries, {
-    overlay_navigator_enabled: "true",
-    overlays_v2_config: JSON.stringify({ suggestions_enabled: true }),
-    captions_enabled: "true",
-    music_caption_enabled: "true",
-    music_caption_song_preview_enabled: "true",
-    link_caption_link_enabled: "true",
-    overlay_dynamic_captions: JSON.stringify([
-        "standard", "poll", "color_palette", "review", "music", "location",
-        "weather", "time", "streak", "star_sign", "party_time", "locket_count",
-        "good_morning", "goodnight", "ootd", "miss_you", "custom", "halloween_2026",
-        "ngonnn", "deppvaii", "phinn", "coikiamia", "cutequoo", "mammmamm", "tenkiuu", "sunnvl"
-    ]),
-    overlay_items: JSON.stringify([
-        {
-            section: "🎨 General",
-            items: [
-                { overlay_id: "caption:standard", source: "local", caption: { type: "standard" } },
-                { overlay_id: "caption:link", source: "local", caption: { type: "link" }, overlay_type: "caption" },
-                { overlay_id: "caption:review", source: "local", caption: { type: "review" } },
-                { overlay_id: "caption:poll", source: "local", caption: { type: "poll" } },
-                { overlay_id: "caption:music", source: "local", caption: { type: "music" } },
-                { overlay_id: "caption:location", source: "local", caption: { type: "location" } },
-                { overlay_id: "caption:weather", source: "local", caption: { type: "weather" } },
-                { overlay_id: "caption:time", source: "local", caption: { type: "time" } },
-                { overlay_id: "caption:streak", source: "local", caption: { type: "streak" } },
-                { overlay_id: "caption:star_sign", source: "local", caption: { type: "star_sign" } },
-                { overlay_id: "caption:color_palette", source: "local", caption: { type: "color_palette" } },
-                { overlay_id: "caption:live", source: "local", caption: { type: "live" } },
-                { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } }
-            ]
-        },
-        {
-            section: "👨🏻‍💻 locketgold by dwcbao",
-            items: [
-                { overlay_id: "caption:ngonnn", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7B2", "#FFDAC1"] }, max_lines: 1, text: "ngonnn vll ", text_color: "#D72638", type: "static_content" } },
-                { overlay_id: "caption:deppvaii", source: "remote", caption: { background: { colors: ["#E2F0CB", "#B5EAD7", "#C7CEEA"] }, max_lines: 1, text: "deppp vaii ", text_color: "#3A506B", type: "static_content" } },
-                { overlay_id: "caption:phinn", source: "remote", caption: { background: { colors: ["#FFDAC1", "#E2F0CB", "#FF9AA2"] }, max_lines: 1, text: "phìnn ", text_color: "#6B4226", type: "static_content" } },
-                { overlay_id: "caption:coikiamia", source: "remote", caption: { background: { colors: ["#C7CEEA", "#E8C5FF", "#FFC6FF"] }, max_lines: 1, text: "coii nó kìa mắ:)) ", text_color: "#4A0E4E", type: "static_content" } },
-                { overlay_id: "caption:cutequoo", source: "remote", caption: { background: { colors: ["#FFB7B2", "#FF9AA2", "#FFDAC1"] }, max_lines: 1, text: "cuteee quoo ", text_color: "#8E2800", type: "static_content" } },
-                { overlay_id: "caption:mammmamm", source: "remote", caption: { background: { colors: ["#FFF1C1", "#FFD1DC", "#E2F0CB"] }, max_lines: 1, text: "mămm mămm ", text_color: "#5C4033", type: "static_content" } },
-                { overlay_id: "caption:tenkiuu", source: "remote", caption: { background: { colors: ["#B5EAD7", "#C7CEEA", "#FF9AA2"] }, max_lines: 1, text: "ténn kìuuu 🐌 ", text_color: "#1C3144", type: "static_content" } },
-                { overlay_id: "caption:sunnvl", source: "remote", caption: { background: { colors: ["#E8C5FF", "#FFC6FF", "#FFFFD1"] }, max_lines: 1, text: "sứnn vl ", text_color: "#4B0082", type: "static_content" } },
-                { overlay_id: "caption:cuoi_vcl_m_oi", source: "remote", caption: { background: { colors: ["#F7971E", "#FFD200", "#FFEE58"] }, icon: { data: "😂", type: "emoji" }, max_lines: 1, text: "Cười vcl m oi", text_color: "#000000E6", type: "static_content" } },
-                { overlay_id: "caption:rot_nuoc_mat", source: "remote", caption: { background: { colors: ["#1CB5E0", "#000046"] }, icon: { data: "😭", type: "emoji" }, max_lines: 1, text: "Rớt nước mắt", text_color: "#FFFFFF", type: "static_content" } },
-                { overlay_id: "caption:chua_du_wow", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7C5", "#FFE4E1"] }, icon: { data: "🎀", type: "emoji" }, max_lines: 1, text: "Chưa đủ wow", text_color: "#6E4254", type: "static_content" } },
-                { overlay_id: "caption:xinh_dep_tuyet_voi", source: "remote", caption: { background: { colors: ["#FC5C7D", "#6A82FB"] }, icon: { data: "💅", type: "emoji" }, max_lines: 1, text: "Xinh đẹp tuyệt vời", text_color: "#FFFFFFE6", type: "static_content" } },
-                { overlay_id: "caption:cai_net_ky", source: "remote", caption: { background: { colors: ["#B7D96C", "#D9ED9A", "#F1F7C8"] }, icon: { data: "😒", type: "emoji" }, max_lines: 1, text: "cái nết kỳ ghê", text_color: "#35451B", type: "static_content" } },
-                { overlay_id: "caption:quan_trong_lam", source: "remote", caption: { background: { colors: ["#7566D9", "#9B8AFB", "#D2C8FF"] }, icon: { data: "💅", type: "emoji" }, max_lines: 1, text: "ủa tưởng mình quan trọng lắm?", text_color: "#FFFFFF", type: "static_content" } }
-            ]
-        }
-    ])
-});
+    // ============================================================
+    // 8. OVERLAY & CUSTOM CAPTIONS (ĐÃ GỘP ĐỦ ID)
+    // ============================================================
+    Object.assign(obj.entries, {
+        overlay_navigator_enabled: "true",
+        overlays_v2_config: JSON.stringify({ suggestions_enabled: true }),
+        captions_enabled: "true",
+        music_caption_enabled: "true",
+        music_caption_song_preview_enabled: "true",
+        link_caption_link_enabled: "true",
+        overlay_dynamic_captions: JSON.stringify([
+            "standard", "poll", "color_palette", "review", "music", "location",
+            "weather", "time", "streak", "star_sign", "party_time", "locket_count",
+            "good_morning", "goodnight", "ootd", "miss_you", "custom", "halloween_2026",
+            "ngonnn", "deppvaii", "phinn", "coikiamia", "cutequoo", "mammmamm", "tenkiuu", "sunnvl",
+            "cuoi_vcl_m_oi", "rot_nuoc_mat", "chua_du_wow", "xinh_dep_tuyet_voi", "cai_net_ky", "quan_trong_lam"
+        ]),
+        overlay_items: JSON.stringify([
+            {
+                section: "🎨 General",
+                items: [
+                    { overlay_id: "caption:standard", source: "local", caption: { type: "standard" } },
+                    { overlay_id: "caption:link", source: "local", caption: { type: "link" }, overlay_type: "caption" },
+                    { overlay_id: "caption:review", source: "local", caption: { type: "review" } },
+                    { overlay_id: "caption:poll", source: "local", caption: { type: "poll" } },
+                    { overlay_id: "caption:music", source: "local", caption: { type: "music" } },
+                    { overlay_id: "caption:location", source: "local", caption: { type: "location" } },
+                    { overlay_id: "caption:weather", source: "local", caption: { type: "weather" } },
+                    { overlay_id: "caption:time", source: "local", caption: { type: "time" } },
+                    { overlay_id: "caption:streak", source: "local", caption: { type: "streak" } },
+                    { overlay_id: "caption:star_sign", source: "local", caption: { type: "star_sign" } },
+                    { overlay_id: "caption:color_palette", source: "local", caption: { type: "color_palette" } },
+                    { overlay_id: "caption:live", source: "local", caption: { type: "live" } },
+                    { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } }
+                ]
+            },
+            {
+                section: "👨🏻‍💻 locketgold by Mít",
+                items: [
+                    { overlay_id: "caption:ngonnn", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7B2", "#FFDAC1"] }, max_lines: 1, text: "ngonnn vll ", text_color: "#D72638", type: "static_content" } },
+                    { overlay_id: "caption:deppvaii", source: "remote", caption: { background: { colors: ["#E2F0CB", "#B5EAD7", "#C7CEEA"] }, max_lines: 1, text: "deppp vaii ", text_color: "#3A506B", type: "static_content" } },
+                    { overlay_id: "caption:phinn", source: "remote", caption: { background: { colors: ["#FFDAC1", "#E2F0CB", "#FF9AA2"] }, max_lines: 1, text: "phìnn ", text_color: "#6B4226", type: "static_content" } },
+                    { overlay_id: "caption:coikiamia", source: "remote", caption: { background: { colors: ["#C7CEEA", "#E8C5FF", "#FFC6FF"] }, max_lines: 1, text: "coii nó kìa mắ:)) ", text_color: "#4A0E4E", type: "static_content" } },
+                    { overlay_id: "caption:cutequoo", source: "remote", caption: { background: { colors: ["#FFB7B2", "#FF9AA2", "#FFDAC1"] }, max_lines: 1, text: "cuteee quoo ", text_color: "#8E2800", type: "static_content" } },
+                    { overlay_id: "caption:mammmamm", source: "remote", caption: { background: { colors: ["#FFF1C1", "#FFD1DC", "#E2F0CB"] }, max_lines: 1, text: "mămm mămm ", text_color: "#5C4033", type: "static_content" } },
+                    { overlay_id: "caption:tenkiuu", source: "remote", caption: { background: { colors: ["#B5EAD7", "#C7CEEA", "#FF9AA2"] }, max_lines: 1, text: "ténn kìuuu 🐌 ", text_color: "#1C3144", type: "static_content" } },
+                    { overlay_id: "caption:sunnvl", source: "remote", caption: { background: { colors: ["#E8C5FF", "#FFC6FF", "#FFFFD1"] }, max_lines: 1, text: "sứnn vl ", text_color: "#4B0082", type: "static_content" } },
+                    { overlay_id: "caption:cuoi_vcl_m_oi", source: "remote", caption: { background: { colors: ["#F7971E", "#FFD200", "#FFEE58"] }, icon: { data: "😂", type: "emoji" }, max_lines: 1, text: "Cười vcl m oi", text_color: "#000000E6", type: "static_content" } },
+                    { overlay_id: "caption:rot_nuoc_mat", source: "remote", caption: { background: { colors: ["#1CB5E0", "#000046"] }, icon: { data: "😭", type: "emoji" }, max_lines: 1, text: "Rớt nước mắt", text_color: "#FFFFFF", type: "static_content" } },
+                    { overlay_id: "caption:chua_du_wow", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7C5", "#FFE4E1"] }, icon: { data: "🎀", type: "emoji" }, max_lines: 1, text: "Chưa đủ wow", text_color: "#6E4254", type: "static_content" } },
+                    { overlay_id: "caption:xinh_dep_tuyet_voi", source: "remote", caption: { background: { colors: ["#FC5C7D", "#6A82FB"] }, icon: { data: "💅", type: "emoji" }, max_lines: 1, text: "Xinh đẹp tuyệt vời", text_color: "#FFFFFFE6", type: "static_content" } },
+                    { overlay_id: "caption:cai_net_ky", source: "remote", caption: { background: { colors: ["#B7D96C", "#D9ED9A", "#F1F7C8"] }, icon: { data: "😒", type: "emoji" }, max_lines: 1, text: "cái nết kỳ ghê", text_color: "#35451B", type: "static_content" } },
+                    { overlay_id: "caption:quan_trong_lam", source: "remote", caption: { background: { colors: ["#7566D9", "#9B8AFB", "#D2C8FF"] }, icon: { data: "💅", type: "emoji" }, max_lines: 1, text: "ủa tưởng mình quan trọng lắm?", text_color: "#FFFFFF", type: "static_content" } }
+                ]
+            }
+        ])
+    });
+}
 
 $done({ body: JSON.stringify(obj) });
