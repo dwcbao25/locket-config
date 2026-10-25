@@ -386,11 +386,16 @@ Object.assign(obj.entries, {
                 { overlay_id: "caption:cutequoo", source: "remote", caption: { background: { colors: ["#FFB7B2", "#FF9AA2", "#FFDAC1"] }, max_lines: 1, text: "cuteee quoo ", text_color: "#8E2800", type: "static_content" } },
                 { overlay_id: "caption:mammmamm", source: "remote", caption: { background: { colors: ["#FFF1C1", "#FFD1DC", "#E2F0CB"] }, max_lines: 1, text: "mămm mămm ", text_color: "#5C4033", type: "static_content" } },
                 { overlay_id: "caption:tenkiuu", source: "remote", caption: { background: { colors: ["#B5EAD7", "#C7CEEA", "#FF9AA2"] }, max_lines: 1, text: "ténn kìuuu 🐌 ", text_color: "#1C3144", type: "static_content" } },
-                { overlay_id: "caption:sunnvl", source: "remote", caption: { background: { colors: ["#E8C5FF", "#FFC6FF", "#FFFFD1"] }, max_lines: 1, text: "sứnn vl ", text_color: "#4B0082", type: "static_content" } }
+                { overlay_id: "caption:sunnvl", source: "remote", caption: { background: { colors: ["#E8C5FF", "#FFC6FF", "#FFFFD1"] }, max_lines: 1, text: "sứnn vl ", text_color: "#4B0082", type: "static_content" } },
+                { overlay_id: "caption:cuoi_vcl_m_oi", source: "remote", caption: { background: { colors: ["#F7971E", "#FFD200", "#FFEE58"] }, icon: { data: "😂", type: "emoji" }, max_lines: 1, text: "Cười vcl m oi", text_color: "#000000E6", type: "static_content" } },
+                { overlay_id: "caption:rot_nuoc_mat", source: "remote", caption: { background: { colors: ["#1CB5E0", "#000046"] }, icon: { data: "😭", type: "emoji" }, max_lines: 1, text: "Rớt nước mắt", text_color: "#FFFFFF", type: "static_content" } },
+                { overlay_id: "caption:chua_du_wow", source: "remote", caption: { background: { colors: ["#FFD1DC", "#FFB7C5", "#FFE4E1"] }, icon: { data: "🎀", type: "emoji" }, max_lines: 1, text: "Chưa đủ wow", text_color: "#6E4254", type: "static_content" } },
+                { overlay_id: "caption:xinh_dep_tuyet_voi", source: "remote", caption: { background: { colors: ["#FC5C7D", "#6A82FB"] }, icon: { data: "💅", type: "emoji" }, max_lines: 1, text: "Xinh đẹp tuyệt vời", text_color: "#FFFFFFE6", type: "static_content" } },
+                { overlay_id: "caption:cai_net_ky", source: "remote", caption: { background: { colors: ["#B7D96C", "#D9ED9A", "#F1F7C8"] }, icon: { data: "😒", type: "emoji" }, max_lines: 1, text: "cái nết kỳ ghê", text_color: "#35451B", type: "static_content" } },
+                { overlay_id: "caption:quan_trong_lam", source: "remote", caption: { background: { colors: ["#7566D9", "#9B8AFB", "#D2C8FF"] }, icon: { data: "💅", type: "emoji" }, max_lines: 1, text: "ủa tưởng mình quan trọng lắm?", text_color: "#FFFFFF", type: "static_content" } }
+                
             ]
         }
     ])
 });
-}
-
 $done({ body: JSON.stringify(obj) });
