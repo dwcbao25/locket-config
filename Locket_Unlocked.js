@@ -1,7 +1,7 @@
 // ============================================================
 // Locket Remote Config Rewrite & Custom Captions
 // Endpoint: firebaseremoteconfig.googleapis.com
-// Tác giả: Mít
+// Tác giả: duyvinh09
 // ============================================================
 
 var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
