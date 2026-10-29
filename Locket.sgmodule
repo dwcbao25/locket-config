@@ -4,13 +4,14 @@
 [MITM]
 hostname = %APPEND% ://revenuecat.com, ://googleapis.com
 
-[Script]
-# 1. Mã can thiệp hệ thống thanh toán RevenueCat để mở khóa tính năng Gold Premium
-revenuecat = type=http-response, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/]+$), script-path=https://raw.githubusercontent.com/dwcbao25/locket-vip/refs/heads/main/locket_gold.js, requires-body=true, max-size=-1, timeout=60
+# 1. Mở khóa Gold (RevenueCat)
+revenuecat = type=http-response, pattern="https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/+$])", script-path=https://raw.githubusercontent.com/dwcbao25/locket-vip/refs/heads/main/locket_gold.js, requires-body=true, max-size=-1, timeout=60
 
-# 2. Mã xóa Header chống nghẽn / xóa cache dữ liệu thanh toán cũ
-deleteHeader = type=http-request, pattern=^https:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers), script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/deleteHeader.js, timeout=60
+# 2. Xóa header chứng nhận / xóa cache dữ liệu thanh toán cũ
+deleteHeader = type=http-request, pattern="https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/[^/+$])", script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/deleteHeader.js, timeout=60
 
-# 3. Mã can thiệp Firebase Remote Config để mở khóa nhãn dán caption và viền widget
-locket_rc = type=http-response, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+, script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/Locket_Unlocked.js, requires-body=true, max-size=-1, timeout=60
-locket_rc_us = type=http-request, pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/namespaces\/firebase:fetch, requires-body=1, max-size=0, script-path=https://raw.githubusercontent.com/dinhduyvinh09/AppPre/refs/heads/main/js/Locket_rc_us.js, timeout=10
+# 3. Ép yêu cầu sang server US (Giúp tải tài nguyên filter và sticker mặt nạ)
+locket_rc_rq = type=http-request, pattern="https:\/\/firebaseremoteconfig\.googleapis\.com\/.+\/projects\/.*", script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/locket_rc_us.js, requires-body=true, max-size=-1, timeout=60
+
+# 4. Trả về Remote Config đầy đủ kho Caption và Face Filters
+locket_rc = type=http-response, pattern="https:\/\/firebaseremoteconfig\.googleapis\.com\/.+\/projects\/.*", script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/Locket_Unlocked.js, requires-body=true, max-size=-1, timeout=60
