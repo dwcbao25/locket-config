@@ -1,29 +1,16 @@
 // ============================================================
-// Locket Remote Config & US Region Rewrite (Full All-in-One)
+// Locket Remote Config Rewrite
 // Endpoint: firebaseremoteconfig.googleapis.com
-// Tác giả: em mit ợ ợ (Đã gộp Request US + Full Response Caption & Filter)
+// Dùng cho: Loon / Quantumult X / Surge / Shadowrocket
+// Tác giả: em mit ợ ợ 
+// Vui lòng khi chia sẽ hoặc lấy về, làm ơn để nguồn giúp mình. Mình cảm ơn
 // ============================================================
 
-// 1. XỬ LÝ REQUEST: Ép vùng sang US để tải tài nguyên filter/sticker mặt nạ
-if (typeof $request !== "undefined" && $request.method === "POST" && $request.body) {
-    try {
-        var reqBody = typeof $request.body === "string" ? JSON.parse($request.body) : $request.body;
-        if (reqBody && typeof reqBody === "object") {
-            reqBody.country_code = "us";
-            reqBody.time_zone = "America/New_York";
-            // reqBody.language_code = "en_US";
-            $done({ body: JSON.stringify(reqBody) });
-            return;
-        }
-    } catch (e) {}
-}
-
-// 2. XỬ LÝ RESPONSE: Trả về Remote Config, Gold, Face Filters và toàn bộ Caption của Mít
-var ua = ($request && ($request.headers["User-Agent"] || $request.headers["user-agent"])) || "";
+var ua = $request.headers["User-Agent"] || $request.headers["user-agent"] || "";
 var obj = JSON.parse($response.body);
 
-if (ua.includes("Locket") || true) {
-    obj.Attention = "chuc mừng b[span_0](start_span)!"[span_0](end_span);
+if (ua.includes("Locket")) {
+    obj.Attention = "chuc mừng b!";
     obj.entries = obj.entries || {};
 
     // ============================================================
@@ -279,6 +266,8 @@ if (ua.includes("Locket") || true) {
         widget_frame_event: JSON.stringify({
             uid: "midautumn_2026",
             url: "https://i.ibb.co/RTm5P1n9/kitty-1.png",
+            // url: "https://i.ibb.co/RTm5P1n9/kitty-1.png",
+            // url: "https://i.ibb.co/JjLZ3cvD/khung-ins.png",
             use_local_time_zone: true,
             placement: "below",
             start_at: "2020-01-01T00:00:00",
@@ -353,7 +342,7 @@ if (ua.includes("Locket") || true) {
     });
 
     // ============================================================
-    // 8. OVERLAY & CUSTOM CAPTIONS (GIỮ NGUYÊN 100% KHO CỦA MÍT)
+    // 8. OVERLAY & CUSTOM CAPTIONS
     // ============================================================
     Object.assign(obj.entries, {
         overlay_navigator_enabled: "true",
@@ -386,11 +375,16 @@ if (ua.includes("Locket") || true) {
                     { overlay_id: "caption:locket_count", source: "local", caption: { type: "locket_count" } },
                 ]
             },
+        
             {
                 section: "👨🏻‍💻 locketgold by dwcbao",
                 items: [
+                  
                     { overlay_id: "caption:toi_nho_em", source: "remote", caption: { background: { colors: ["#FFFFFF", "#6D9EEB"] }, max_lines: 1, text: "tran duc bao cute pho mai que", text_color: "#000000E6", type: "static_content" } },
+                    
                     { overlay_id: "caption:tuat", source: "remote", caption: { background: { colors: ["#2C1A0E", "#5D4037", "#D7A86E"] }, icon: { data: "🐀", type: "emoji" }, max_lines: 1, text: "25 12 2008", text_color: "#FFFFFFE6", type: "static_content" } },
+                    
+               
                     { overlay_id: "caption:love_vietnam", source: "remote", alt_text: "Tôi yêu Việt Nam", caption: { background: { image: { type: "image", data: "star_sign_background", source: "local" }, colors: ["#DA251D", "#DA251D"] }, icon: { type: "image", data: "https://storage.googleapis.com/locket-public/journal_calendar_assets/holiday_indicators/valentines_indicator%403x.png", source: "url" }, max_lines: 1, text: "Tôi yêu Việt Nam", text_color: "#FFFF00", type: "static_content" } },
                 ]
             },
