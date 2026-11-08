@@ -1,5 +1,5 @@
-#!name=Locket Gold Full Fix - Server Private của Tuti
-#!desc=Combo bẻ khóa Locket Gold an toàn: Giữ nguyên 100% bạn bè và chạy Sticker AI độc lập qua Cloudflare cá nhân.
+#!name=Locket Gold Full Fix - Private Server Tuti
+#!desc=Combo bẻ khóa Locket Gold an toàn: Giữ nguyên 100% bạn bè thật và chạy Sticker AI độc lập qua Cloudflare cá nhân. Độc quyền bởi AI Fix.
 #!system=ios
 
 [Rule]
@@ -7,7 +7,7 @@ AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT
 AND,((DOMAIN,://googleapis.com),(PROTOCOL,UDP)),REJECT
 
 [URL Rewrite]
-# Điều hướng duy nhất cổng vẽ ảnh Sticker AI về server Cloudflare cá nhân của bạn
+# Điều hướng chuẩn xác cổng vẽ ảnh Sticker AI về cụm server Cloudflare cá nhân của bạn
 ^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage https://workers.dev 307
 
 [Header Rewrite]
@@ -15,16 +15,13 @@ AND,((DOMAIN,://googleapis.com),(PROTOCOL,UDP)),REJECT
 ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-none-match
 
 [Script]
-# 1. Chiều Request xóa cache gây lỗi kết nối mạng
-deleteHeader_RC = type=http-request,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://githubusercontent.com
-deleteHeader_Firebase = type=http-request,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://githubusercontent.com
+deleteHeader_RC = type=http-request,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://locket-vip.mhiep20077.workers.dev/js/deleteHeader.js,timeout=60
+deleteHeader_Firebase = type=http-request,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://locket-vip.mhiep20077.workers.dev/js/deleteHeader.js,timeout=60
 
-# 2. Chiều Response bẻ khóa Gold & đồng bộ danh sách bạn bè an toàn (Lấy từ kho lưu trữ thô GitHub không sợ die)
-revenuecat = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://githubusercontent.com
-locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://githubusercontent.com
+revenuecat = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://github.com/dwcbao25/locket-config/blob/main/huhu.js,requires-body=true,max-size=-1,timeout=60
+locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://github.com/dwcbao25/locket-config/blob/main/Locket_Unlocked.js?v=20261108_30,requires-body=true,max-size=-1,timeout=60
 
-# 3. Điều hướng xử lý vẽ ảnh AI qua file script photobooth.js lưu cục bộ trên máy tính của bạn
-locket_pb_req = type=http-request,pattern=^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage,script-path=photobooth.js,requires-body=true,max-size=-1,timeout=60
+locket_pb_req = type=http-request,pattern=^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage,script-path=https://github.com/dwcbao25/locket-config/blob/main/photobooth.js?v=20261108_30,requires-body=true,max-size=-1,timeout=60
 
 [Host]
 ://googleapis.com = 0.0.0.0
