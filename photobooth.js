@@ -1,8 +1,8 @@
 // 🛡️ MinhHiep08 Security Shield - All Rights Reserved
 // Unauthorized copying or decompilation is strictly prohibited.
 (function() {
-    const _0x269454 = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
-    const _0x4934ad = {
+    const workerBaseUrl = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
+    const stickerNameAliasMap = {
         stk_rose_flower: "rose_flower",
         rose_flower: "rose_flower",
         stk_shrek_ogre: "shrek_ogre",
@@ -126,7 +126,7 @@
         stk_midautumn_rabbit: "midautumn_rabbit",
         midautumn_rabbit: "midautumn_rabbit"
     };
-    const _0x194672 = {
+    const stickerPromptDescriptions = {
         stk_gold_crown: "Place an ornate gleaming gold royal crown studded with red and green gemstones on top of the head or main subject",
         stk_sweet_valentine: "Add romantic soft glowing translucent pink hearts and gentle heart-shaped bokeh floating gracefully throughout the scene and surroundings (with a warm soft cheek glow if a person is present)",
         stk_christmas_bell: "Add warm twinkling Christmas fairy lights, subtle golden sparkles, festive pine boughs, and holly berry accents throughout the scene and surroundings",
@@ -170,7 +170,7 @@
         stk_dio_easter_chick: "Add a cute bright yellow chick costume hoodie with a small orange beak and crest framing the head or subject",
         stk_dio_lucky_face: "Add a vibrant green four-leaf clover decal on the cheek or subject with subtle emerald sparkle accents"
     };
-    const _0x8b8527 = {
+    const filterPromptMap = {
         rose_flower: "Show the person in the photo with the exact same pose and background, but have them with a single rose in their mouth. If no person is present in the input, do not add anything to the output.",
         stk_rose_flower: "Show the person in the photo with the exact same pose and background, but have them with a single rose in their mouth. If no person is present in the input, do not add anything to the output.",
         shrek_ogre: "Show the person in the photo with the exact same pose and background, but transform them into Shrek with rounded ears, and rustic clothing while preserving the pose. Keep their hairstyle, but make it look natural in the Shrek style.",
@@ -224,89 +224,89 @@
         frame_classic_pb: "Show the persons in the photo with the exact same pose and background, captured with classic black and white film photobooth aesthetic, dramatic soft lighting, 8k resolution, modern iPhone camera look."
     };
 
-    function _0x1bc13a(_0xdfb727) {
+    function readStorage(key) {
         try {
             if (typeof $persistentStore !== "undefined") {
-                return $persistentStore.read(_0xdfb727) || "";
+                return $persistentStore.read(key) || "";
             }
             if (typeof $prefs !== "undefined") {
-                return $prefs.valueForKey(_0xdfb727) || "";
+                return $prefs.valueForKey(key) || "";
             }
-        } catch (_0x575d1b) {}
+        } catch (error) {}
         return "";
     }
 
-    function _0x4bd89d(_0x3987f3, _0x3b9da9) {
+    function writeStorage(key, value) {
         try {
             if (typeof $persistentStore !== "undefined") {
-                $persistentStore.write(String(_0x3b9da9), _0x3987f3);
+                $persistentStore.write(String(value), key);
             } else if (typeof $prefs !== "undefined") {
-                $prefs.setValueForKey(String(_0x3b9da9), _0x3987f3);
+                $prefs.setValueForKey(String(value), key);
             }
-        } catch (_0x1c4661) {}
+        } catch (error) {}
     }
 
-    function _0x41be09(_0x32f100, _0x48089c, _0x96c7b3) {
+    function showNotification(title, subtitle, message) {
         try {
             if (typeof $notification !== "undefined" && $notification.post) {
-                $notification.post(_0x32f100, _0x48089c, _0x96c7b3);
+                $notification.post(title, subtitle, message);
             } else if (typeof $notify !== "undefined") {
-                $notify(_0x32f100, _0x48089c, _0x96c7b3);
+                $notify(title, subtitle, message);
             }
-        } catch (_0x1eb0df) {}
+        } catch (error) {}
     }
 
-    function _0xa84dcf(_0x49ecc0) {
-        if (!_0x49ecc0) {
+    function determineCutCount(filterId) {
+        if (!filterId) {
             return 4;
         }
-        const _0x2460b9 = String(_0x49ecc0).toLowerCase();
-        if (_0x2460b9.includes("2cut") || _0x2460b9.includes("2_cut") || _0x2460b9.includes("2x1") || _0x2460b9.includes("2_shot")) {
+        const lowerFilterId = String(filterId).toLowerCase();
+        if (lowerFilterId.includes("2cut") || lowerFilterId.includes("2_cut") || lowerFilterId.includes("2x1") || lowerFilterId.includes("2_shot")) {
             return 2;
         }
-        if (_0x2460b9.includes("3cut") || _0x2460b9.includes("3_cut") || _0x2460b9.includes("3x1") || _0x2460b9.includes("3_shot")) {
+        if (lowerFilterId.includes("3cut") || lowerFilterId.includes("3_cut") || lowerFilterId.includes("3x1") || lowerFilterId.includes("3_shot")) {
             return 3;
         }
         return 4;
     }
 
-    function _0xed4b5b(_0x39d3df, _0x821317, _0x3f5568) {
-        const _0x1fd58d = _0x3f5568 || _0x269454;
-        if (_0x821317 === 2) {
-            const _0x25bb4e = _0x39d3df === 2 ? "pb_2cut_step2.jpg" : "pb_2cut_step1.jpg";
-            return _0x1fd58d + "/assets/img/" + _0x25bb4e;
+    function getStepImageUrl(stepIndex, totalCuts, baseUrlOverride) {
+        const baseUrl = baseUrlOverride || workerBaseUrl;
+        if (totalCuts === 2) {
+            const stepImage = stepIndex === 2 ? "pb_2cut_step2.jpg" : "pb_2cut_step1.jpg";
+            return baseUrl + "/assets/img/" + stepImage;
         }
-        if (_0x821317 === 3) {
-            const _0x14ad4b = _0x39d3df === 3 ? "pb_3cut_step3.jpg" : _0x39d3df === 2 ? "pb_3cut_step2.jpg" : "pb_3cut_step1.jpg";
-            return _0x1fd58d + "/assets/img/" + _0x14ad4b;
+        if (totalCuts === 3) {
+            const stepImage = stepIndex === 3 ? "pb_3cut_step3.jpg" : stepIndex === 2 ? "pb_3cut_step2.jpg" : "pb_3cut_step1.jpg";
+            return baseUrl + "/assets/img/" + stepImage;
         }
-        const _0x5c510f = _0x39d3df === 2 ? "pb_step2.jpg" : _0x39d3df === 3 ? "pb_step3.jpg" : _0x39d3df === 4 ? "pb_step4.jpg" : "pb_step1.jpg";
-        return _0x1fd58d + "/assets/img/" + _0x5c510f;
+        const stepImage = stepIndex === 2 ? "pb_step2.jpg" : stepIndex === 3 ? "pb_step3.jpg" : stepIndex === 4 ? "pb_step4.jpg" : "pb_step1.jpg";
+        return baseUrl + "/assets/img/" + stepImage;
     }
 
-    function _0x2a71a3(_0x12728d) {
-        if (!_0x12728d) {
+    function isPhotoboothFilter(filterId) {
+        if (!filterId) {
             return false;
         }
-        const _0x4a1207 = String(_0x12728d).toLowerCase();
-        if (_0x4a1207.startsWith("pb_single_") || _0x4a1207.startsWith("khung_")) {
+        const lowerFilterId = String(filterId).toLowerCase();
+        if (lowerFilterId.startsWith("pb_single_") || lowerFilterId.startsWith("khung_")) {
             return false;
         }
-        return /photobooth|pb_|frame_|4cut|3cut|2cut|cute|berry_days|happy_snap|sky_diary|photoboot|classic_pb|xmas/i.test(_0x4a1207);
+        return /photobooth|pb_|frame_|4cut|3cut|2cut|cute|berry_days|happy_snap|sky_diary|photoboot|classic_pb|xmas/i.test(lowerFilterId);
     }
 
-    function _0x297861(_0x58bfd1) {
-        if (!_0x58bfd1) {
+    function isCustomFrameFilter(filterId) {
+        if (!filterId) {
             return false;
         }
-        if (_0x2a71a3(_0x58bfd1)) {
+        if (isPhotoboothFilter(filterId)) {
             return false;
         }
-        const _0xfb135f = String(_0x58bfd1).toLowerCase();
-        return /^khung_|^frame_|pb_single_|cmt_locket|custom_frame|sticker_b_nh_lu_n/i.test(_0xfb135f);
+        const lowerFilterId = String(filterId).toLowerCase();
+        return /^khung_|^frame_|pb_single_|cmt_locket|custom_frame|sticker_b_nh_lu_n/i.test(lowerFilterId);
     }
 
-    function _0x125e4c(_0x4a1845) {
+    function createJsonResponse(imageUrl) {
         return {
             status: 200,
             headers: {
@@ -315,164 +315,165 @@
             },
             body: JSON.stringify({
                 result: {
-                    outputUrl: _0x4a1845,
-                    output_url: _0x4a1845,
-                    url: _0x4a1845,
-                    imageUrl: _0x4a1845,
-                    image_url: _0x4a1845,
+                    outputUrl: imageUrl,
+                    output_url: imageUrl,
+                    url: imageUrl,
+                    imageUrl: imageUrl,
+                    image_url: imageUrl,
                     status: 200,
                     data: {
-                        outputUrl: _0x4a1845,
-                        output_url: _0x4a1845,
-                        url: _0x4a1845,
-                        imageUrl: _0x4a1845,
-                        image_url: _0x4a1845
+                        outputUrl: imageUrl,
+                        output_url: imageUrl,
+                        url: imageUrl,
+                        imageUrl: imageUrl,
+                        image_url: imageUrl
                     }
                 }
             })
         };
     }
 
-    function _0x23d6ca(_0x5114a4, _0x8ad841) {
-        if (!_0x5114a4 || typeof _0x5114a4 !== "object") {
+    function updateImageUrlFields(obj, newUrl) {
+        if (!obj || typeof obj !== "object") {
             return;
         }
-        const _0x1a5358 = ["outputUrl", "output_url", "url", "imageUrl", "image_url"];
-        const _0x4f22fc = [_0x5114a4, _0x5114a4.result, _0x5114a4.result && _0x5114a4.result.data, _0x5114a4.data];
-        for (let _0x8945a6 = 0; _0x8945a6 < _0x4f22fc.length; _0x8945a6++) {
-            const _0x11409d = _0x4f22fc[_0x8945a6];
-            if (_0x11409d && typeof _0x11409d === "object") {
-                for (let _0x25fc97 = 0; _0x25fc97 < _0x1a5358.length; _0x25fc97++) {
-                    if (_0x11409d[_0x1a5358[_0x25fc97]] !== undefined) {
-                        _0x11409d[_0x1a5358[_0x25fc97]] = _0x8ad841;
+        const urlKeys = ["outputUrl", "output_url", "url", "imageUrl", "image_url"];
+        const targets = [obj, obj.result, obj.result && obj.result.data, obj.data];
+        for (let i = 0; i < targets.length; i++) {
+            const target = targets[i];
+            if (target && typeof target === "object") {
+                for (let j = 0; j < urlKeys.length; j++) {
+                    if (target[urlKeys[j]] !== undefined) {
+                        target[urlKeys[j]] = newUrl;
                     }
                 }
             }
         }
-        if (!_0x5114a4.result) {
-            _0x5114a4.result = {};
+        if (!obj.result) {
+            obj.result = {};
         }
-        _0x5114a4.result.outputUrl = _0x8ad841;
-        _0x5114a4.result.output_url = _0x8ad841;
-        _0x5114a4.result.url = _0x8ad841;
-        _0x5114a4.result.imageUrl = _0x8ad841;
-        _0x5114a4.result.image_url = _0x8ad841;
-        _0x5114a4.result.status = 200;
-        if (_0x5114a4.result.data) {
-            _0x5114a4.result.data.outputUrl = _0x8ad841;
-            _0x5114a4.result.data.output_url = _0x8ad841;
-            _0x5114a4.result.data.url = _0x8ad841;
-            _0x5114a4.result.data.imageUrl = _0x8ad841;
-            _0x5114a4.result.data.image_url = _0x8ad841;
+        obj.result.outputUrl = newUrl;
+        obj.result.output_url = newUrl;
+        obj.result.url = newUrl;
+        obj.result.imageUrl = newUrl;
+        obj.result.image_url = newUrl;
+        obj.result.status = 200;
+        if (obj.result.data) {
+            obj.result.data.outputUrl = newUrl;
+            obj.result.data.output_url = newUrl;
+            obj.result.data.url = newUrl;
+            obj.result.data.imageUrl = newUrl;
+            obj.result.data.image_url = newUrl;
         }
     }
+
     if (typeof $response === "undefined") {
         try {
             if (!$request) {
                 return $done({});
             }
-            let _0x2ef10b = {};
+            let requestBody = {};
             try {
-                _0x2ef10b = typeof $request.body === "string" ? JSON.parse($request.body) : $request.body || {};
-            } catch (_0x4d9ba6) {
-                _0x2ef10b = {};
+                requestBody = typeof $request.body === "string" ? JSON.parse($request.body) : $request.body || {};
+            } catch (error) {
+                requestBody = {};
             }
-            const _0x21c6ea = _0x2ef10b.data && _0x2ef10b.data.filter_id || _0x2ef10b.filter_id || _0x2ef10b.id || _0x2ef10b.prompt || "";
-            const _0x47b682 = _0x2ef10b.data && _0x2ef10b.data.imageUrl || _0x2ef10b.imageUrl || _0x2ef10b.image_url || "";
-            if (_0x297861(_0x21c6ea)) {
+            const filterId = requestBody.data && requestBody.data.filter_id || requestBody.filter_id || requestBody.id || requestBody.prompt || "";
+            const imageUrl = requestBody.data && requestBody.data.imageUrl || requestBody.imageUrl || requestBody.image_url || "";
+            if (isCustomFrameFilter(filterId)) {
                 return $done({
-                    response: _0x125e4c(_0x47b682)
+                    response: createJsonResponse(imageUrl)
                 });
             }
-            if (_0x2a71a3(_0x21c6ea)) {
-                const _0x3cbba0 = _0xa84dcf(_0x21c6ea);
-                const _0x55c453 = _0x1bc13a("pb_active_filter");
-                const _0x397104 = parseInt(_0x1bc13a("pb_active_time") || "0", 10);
-                let _0xf2ad42 = parseInt(_0x1bc13a("pb_active_step") || "1", 10);
-                if (_0x55c453 !== _0x21c6ea || Date.now() - _0x397104 > 180000 || _0xf2ad42 < 1 || _0xf2ad42 > _0x3cbba0) {
-                    _0xf2ad42 = 1;
+            if (isPhotoboothFilter(filterId)) {
+                const totalCuts = determineCutCount(filterId);
+                const activeFilter = readStorage("pb_active_filter");
+                const activeTime = parseInt(readStorage("pb_active_time") || "0", 10);
+                let activeStep = parseInt(readStorage("pb_active_step") || "1", 10);
+                if (activeFilter !== filterId || Date.now() - activeTime > 180000 || activeStep < 1 || activeStep > totalCuts) {
+                    activeStep = 1;
                 }
-                _0x4bd89d("pb_img_" + _0xf2ad42, _0x47b682);
-                _0x4bd89d("pb_active_filter", _0x21c6ea);
-                _0x4bd89d("pb_active_time", Date.now());
-                if (_0xf2ad42 < _0x3cbba0) {
-                    _0x4bd89d("pb_active_step", String(_0xf2ad42 + 1));
-                    const _0x32e5ae = _0xed4b5b(_0xf2ad42, _0x3cbba0, _0x269454);
+                writeStorage("pb_img_" + activeStep, imageUrl);
+                writeStorage("pb_active_filter", filterId);
+                writeStorage("pb_active_time", Date.now());
+                if (activeStep < totalCuts) {
+                    writeStorage("pb_active_step", String(activeStep + 1));
+                    const nextStepUrl = getStepImageUrl(activeStep, totalCuts, workerBaseUrl);
                     return $done({
-                        response: _0x125e4c(_0x32e5ae)
+                        response: createJsonResponse(nextStepUrl)
                     });
                 }
-                _0x4bd89d("pb_active_step", "1");
-                const _0x1f560f = _0x1bc13a("pb_img_1") || _0x47b682;
-                const _0xf27987 = _0x3cbba0 >= 2 ? _0x1bc13a("pb_img_2") || _0x47b682 : _0x47b682;
-                const _0x309a72 = _0x3cbba0 >= 3 ? _0x1bc13a("pb_img_3") || _0x47b682 : _0x47b682;
-                const _0x3259a3 = _0x47b682;
-                const _0x1eb777 = _0x269454 + "/generateFilteredImage?module=Locket_YouTube&step=" + _0x3cbba0 + "&totalSteps=" + _0x3cbba0 + "&frame=" + encodeURIComponent(_0x21c6ea) + "&img1=" + encodeURIComponent(_0x1f560f) + "&img2=" + encodeURIComponent(_0xf27987) + "&img3=" + encodeURIComponent(_0x309a72) + "&img4=" + encodeURIComponent(_0x3259a3);
-                let _0x1bfde7 = Object.assign({}, $request && $request.headers || {});
-                _0x1bfde7.Host = "locket-vip.mhiep20077.workers.dev";
-                _0x1bfde7.host = "locket-vip.mhiep20077.workers.dev";
-                _0x1bfde7["X-Module-Origin"] = "Locket_YouTube";
-                const _0x2b17a1 = Object.assign({}, _0x2ef10b, {
-                    step: String(_0x3cbba0),
-                    totalSteps: _0x3cbba0,
-                    frame: _0x21c6ea,
-                    filter_id: _0x21c6ea,
-                    img1: _0x1f560f,
-                    img2: _0xf27987,
-                    img3: _0x309a72,
-                    img4: _0x3259a3
+                writeStorage("pb_active_step", "1");
+                const img1 = readStorage("pb_img_1") || imageUrl;
+                const img2 = totalCuts >= 2 ? readStorage("pb_img_2") || imageUrl : imageUrl;
+                const img3 = totalCuts >= 3 ? readStorage("pb_img_3") || imageUrl : imageUrl;
+                const img4 = imageUrl;
+                const finalWorkerUrl = workerBaseUrl + "/generateFilteredImage?module=Locket_YouTube&step=" + totalCuts + "&totalSteps=" + totalCuts + "&frame=" + encodeURIComponent(filterId) + "&img1=" + encodeURIComponent(img1) + "&img2=" + encodeURIComponent(img2) + "&img3=" + encodeURIComponent(img3) + "&img4=" + encodeURIComponent(img4);
+                let requestHeaders = Object.assign({}, $request && $request.headers || {});
+                requestHeaders.Host = "spring-sky-609d.dwcbaocuteee.workers.dev";
+                requestHeaders.host = "spring-sky-609d.dwcbaocuteee.workers.dev";
+                requestHeaders["X-Module-Origin"] = "Locket_YouTube";
+                const modifiedRequestBody = Object.assign({}, requestBody, {
+                    step: String(totalCuts),
+                    totalSteps: totalCuts,
+                    frame: filterId,
+                    filter_id: filterId,
+                    img1: img1,
+                    img2: img2,
+                    img3: img3,
+                    img4: img4
                 });
                 return $done({
-                    url: _0x1eb777,
-                    headers: _0x1bfde7,
-                    body: JSON.stringify(_0x2b17a1)
+                    url: finalWorkerUrl,
+                    headers: requestHeaders,
+                    body: JSON.stringify(modifiedRequestBody)
                 });
             }
-            const _0x532a46 = new Date(Date.now() + 25200000).toISOString().slice(0, 10);
-            const _0x4e0eaf = "ai_stk_success_v2_" + _0x532a46;
-            const _0x47d95e = parseInt(_0x1bc13a(_0x4e0eaf) || "0", 10);
-            const _0x3311d2 = _0x1bc13a("ai_admin") === "true";
-            if (!_0x3311d2 && _0x47d95e >= 3) {
-                _0x41be09("Locket AI - Giới Hạn Tạo Ảnh", "Đã dùng hết 3 lượt hôm nay", "Bạn đã sử dụng tối đa 3 lượt tạo Sticker AI miễn phí trong ngày hôm nay! Vui lòng quay lại vào ngày mai nhé.");
+            const todayDate = new Date(Date.now() + 25200000).toISOString().slice(0, 10);
+            const successCountKey = "ai_stk_success_v2_" + todayDate;
+            const currentSuccessCount = parseInt(readStorage(successCountKey) || "0", 10);
+            const isAdmin = readStorage("ai_admin") === "true";
+            if (!isAdmin && currentSuccessCount >= 3) {
+                showNotification("Locket AI - Giới Hạn Tạo Ảnh", "Đã dùng hết 3 lượt hôm nay", "Bạn đã sử dụng tối đa 3 lượt tạo Sticker AI miễn phí trong ngày hôm nay! Vui lòng quay lại vào ngày mai nhé.");
                 return $done({
-                    response: _0x125e4c(_0x47b682)
+                    response: createJsonResponse(imageUrl)
                 });
             }
-            const _0x3c0787 = _0x269454 + "/generateFilteredImage?module=Locket_YouTube&filterId=" + encodeURIComponent(_0x21c6ea) + "&imageUrl=" + encodeURIComponent(_0x47b682);
-            let _0x15eee5 = Object.assign({}, $request && $request.headers || {});
-            _0x15eee5.Host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
-            _0x15eee5.host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
-            _0x15eee5["X-Module-Origin"] = "Locket_YouTube";
+            const aiWorkerUrl = workerBaseUrl + "/generateFilteredImage?module=Locket_YouTube&filterId=" + encodeURIComponent(filterId) + "&imageUrl=" + encodeURIComponent(imageUrl);
+            let aiRequestHeaders = Object.assign({}, $request && $request.headers || {});
+            aiRequestHeaders.Host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
+            aiRequestHeaders.host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
+            aiRequestHeaders["X-Module-Origin"] = "Locket_YouTube";
             return $done({
-                url: _0x3c0787,
-                headers: _0x15eee5,
-                body: typeof $request.body === "string" ? $request.body : JSON.stringify(_0x2ef10b)
+                url: aiWorkerUrl,
+                headers: aiRequestHeaders,
+                body: typeof $request.body === "string" ? $request.body : JSON.stringify(requestBody)
             });
-        } catch (_0xaa90ed) {
+        } catch (error) {
             return $done({});
         }
     }
     try {
         if (typeof $response !== "undefined" && $response.body) {
-            let _0x29c690 = {};
+            let responseBody = {};
             try {
-                _0x29c690 = JSON.parse($response.body);
-            } catch (_0x37e6a5) {
-                _0x29c690 = {};
+                responseBody = JSON.parse($response.body);
+            } catch (error) {
+                responseBody = {};
             }
-            if (_0x29c690.limit_exceeded || _0x29c690.result && _0x29c690.result.limit_exceeded) {
-                _0x41be09("Locket AI - Giới Hạn Tạo Ảnh", "Đã dùng hết 3 lượt hôm nay", "Bạn đã sử dụng tối đa 3 lượt tạo ảnh Sticker AI miễn phí trong ngày hôm nay! Vui lòng quay lại vào ngày mai nhé.");
-            } else if (_0x29c690 && _0x29c690.result && (_0x29c690.result.engine || _0x29c690.result.type === "ai_generated")) {
-                const _0x226e60 = new Date(Date.now() + 25200000).toISOString().slice(0, 10);
-                const _0xd97db3 = "ai_stk_success_v2_" + _0x226e60;
-                const _0x1507d6 = parseInt(_0x1bc13a(_0xd97db3) || "0", 10);
-                _0x4bd89d(_0xd97db3, String(_0x1507d6 + 1));
+            if (responseBody.limit_exceeded || responseBody.result && responseBody.result.limit_exceeded) {
+                showNotification("Locket AI - Giới Hạn Tạo Ảnh", "Đã dùng hết 3 lượt hôm nay", "Bạn đã sử dụng tối đa 3 lượt tạo ảnh Sticker AI miễn phí trong ngày hômnay! Vui lòng quay lại vào ngày mai nhé.");
+            } else if (responseBody && responseBody.result && (responseBody.result.engine || responseBody.result.type === "ai_generated")) {
+                const todayDate = new Date(Date.now() + 25200000).toISOString().slice(0, 10);
+                const successCountKey = "ai_stk_success_v2_" + todayDate;
+                const currentSuccessCount = parseInt(readStorage(successCountKey) || "0", 10);
+                writeStorage(successCountKey, String(currentSuccessCount + 1));
             }
-            delete _0x29c690.error;
-            delete _0x29c690.errors;
-            if (_0x29c690.result) {
-                delete _0x29c690.result.error;
-                delete _0x29c690.result.errors;
+            delete responseBody.error;
+            delete responseBody.errors;
+            if (responseBody.result) {
+                delete responseBody.result.error;
+                delete responseBody.result.errors;
             }
             return $done({
                 status: 200,
@@ -480,9 +481,9 @@
                     "Content-Type": "application/json; charset=utf-8",
                     "Access-Control-Allow-Origin": "*"
                 },
-                body: JSON.stringify(_0x29c690)
+                body: JSON.stringify(responseBody)
             });
         }
-    } catch (_0x19f91d) {}
+    } catch (error) {}
     return $done({});
 })();
