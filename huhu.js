@@ -29,8 +29,8 @@ var minhhiep08 = {
   grace_period_expires_date: null,
   refunded_at: null,
   unsubscribe_detected_at: null,
-  original_purchase_date: "2005-01-09T10:10:15Z",
-  purchase_date: "2005-01-09T10:10:14Z",
+  original_purchase_date: "2008-12-25T10:10:15Z",
+  purchase_date: "2008-12-25T10:10:14Z",
   store: "app_store",
   store_transaction_id: "2000001108724193"
 };
