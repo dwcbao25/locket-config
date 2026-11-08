@@ -18,7 +18,7 @@ DOMAIN-SUFFIX,sentry.io,REJECT
 DOMAIN-SUFFIX,ingest.sentry.io,REJECT
 
 [URL Rewrite]
-^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage https://locket-vip.mhiep20077.workers.dev/generateFilteredImage?module=Locket_YouTube 307
+^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage https://spring-sky-609d.dwcbaocuteee.workers.dev/ 307
 
 [Header Rewrite]
 ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers) header-del x-revenuecat-etag
