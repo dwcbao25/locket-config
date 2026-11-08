@@ -1,5 +1,5 @@
 (function () {
-  const SERVER_URL = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
+  const SERVER_URL = "https://workers.dev";
 
   // Mảng ánh xạ mã sticker của Locket sang tên hiệu ứng AI tương ứng
   const stickerMapping = {
@@ -115,7 +115,7 @@
     influencer: "influencer"
   };
 
-  // Danh sách các câu lệnh Prompt AI mẫu tương ứng với từng filter (Gửi lên Server để vẽ lại ảnh)
+  // Danh sách các câu lệnh Prompt AI mẫu tương ứng với từng filter
   const aiPrompts = {
     rose_flower: "Show the person in the photo with the exact same pose and background, but have them with a single rose in their mouth. If no person is present in the input, do not add anything to the output.",
     stk_rose_flower: "Show the person in the photo with the exact same pose and background, but have them with a single rose in their mouth. If no person is present in the input, do not add anything to the output.",
@@ -138,8 +138,7 @@
     golden_hour: "Show the person in the photo with the exact same pose, expression, and background, but make the scene look like it was captured during peak golden hour with warm sunlight and long shadows. If no person is present, do not add any people to the output.",
     stk_golden_hour: "Show the person in the photo with the exact same pose, expression, and background, but make the scene look like it was captured during peak golden hour with warm sunlight and long shadows. If no person is present, do not add any people to the output.",
     jungle_leaf: "Show the person in the photo with the exact same pose, background, and facial expression, but with their background surroundings overgrown with plants in a seamless way. The person and their background should remain in the same positions. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-Hãy thận trọng khi sử dụng mã.
-stk_jungle_leaf: "Show the person in the photo with the exact same pose, background, and facial expression, but with their background surroundings overgrown with plants in a seamless way. The person and their background should remain in the same positions. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+    stk_jungle_leaf: "Show the person in the photo with the exact same pose, background, and facial expression, but with their background surroundings overgrown with plants in a seamless way. The person and their background should remain in the same positions. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
 cute_zombie: "Show the person in the photo with the exact same pose and background, but turn them into a zombie while keeping their pose and expression identical.",
 stk_cute_zombie: "Show the person in the photo with the exact same pose and background, but turn them into a zombie while keeping their pose and expression identical.",
 fireworks: "Show the person in the photo with the exact same pose and background, but fill the scene with fireworks exploding in the night sky and reflecting colorful light onto the subject. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
@@ -159,7 +158,8 @@ stk_ocean_underwater: "Show the person in the photo with the exact same pose, ba
 ufo_alien: "Show the person in the photo with the exact same pose and background, but show a subtle UFO hovering in the sky or an alien somewhere hidden somewhere in the user's background. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
 stk_ufo_alien: "Show the person in the photo with the exact same pose and background, but show a subtle UFO hovering in the sky or an alien somewhere hidden somewhere in the user's background. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
 disco_lights: "Show the persons in the photo with the exact same pose and background, but with disco-style lighting effects cast across the scene, captured with a modern iPhone camera look...",
-influencer: "Show the persons in the photo with the exact same pose and background, but with a hyperbolic "influencer" makeup look applied to the face, captured with a modern iPhone camera look...",
+// FIX BIẾN INFLUENCER: Thay đổi nháy kép thành nháy đơn để tránh lỗi cú pháp hỏng code
+influencer: "Show the persons in the photo with the exact same pose and background, but with a hyperbolic 'influencer' makeup look applied to the face, captured with a modern iPhone camera look...",
 princess: "Show the person in the photo with the exact same pose and background, but portray them as a prince charming or a beautiful princess from a fairytale.",
 looks_maxxing: "Show the persons in the photo with the exact same pose and background, but with a full, full-length beard added to the face, captured with a modern iPhone camera look...",
 beard: "Show the persons in the photo with the exact same pose and background, but with a full, full-length beard added to the face, captured with a modern iPhone camera look...",
@@ -195,99 +195,55 @@ frame_classic_pb: "Show the persons in the photo with the exact same pose and ba
 // Hàm đọc dữ liệu cấu hình lưu trữ trong hệ thống proxy
 function readPersistentStore(key) {
 try {
-if (typeof $persistentStore !== "undefined") {
-return $persistentStore.read(key) || "";
-}
-if (typeof $prefs !== "undefined") {
-return $prefs.valueForKey(key) || "";
-}
+if (typeof $persistentStore !== "undefined") return $persistentStore.read(key) || "";
+if (typeof $prefs !== "undefined") return $prefs.valueForKey(key) || "";
 } catch (e) {}
 return "";
 }
 // Hàm ghi cấu hình vào bộ nhớ proxy
 function writePersistentStore(key, value) {
 try {
-if (typeof $persistentStore !== "undefined") {
-$persistentStore.write(String(value), key);
-} else if (typeof $prefs !== "undefined") {
-$prefs.setValueForKey(String(value), key);
-}
+if (typeof $persistentStore !== "undefined") $persistentStore.write(String(value), key);
+else if (typeof $prefs !== "undefined") $prefs.setValueForKey(String(value), key);
 } catch (e) {}
 }
-// Hàm kiểm tra xem hiệu ứng có thuộc nhóm "Photobooth 4 ảnh" (Khung ảnh nghệ thuật) hay không
 function isPhotoboothStyle(effectName) {
-if (!effectName) {
-return false;
-}
+if (!effectName) return false;
 const lowerName = String(effectName).toLowerCase();
-if (lowerName.startsWith("pb_single_") || lowerName.startsWith("khung_")) {
-return false;
-}
+if (lowerName.startsWith("pb_single_") || lowerName.startsWith("khung_")) return false;
 return /photobooth_4cut|photobooth_cute|pb_holo_4cut|pb_scrapbook_ripped_4cut|pb_ripped_paper_4cut|pb_denim_ripped_2x2|frame_classic_pb|frame_berry_days|frame_happy_snap|frame_sky_diary|pb_strawberry|pb_vintage|pb_galaxy|photoboot|4cut/i.test(lowerName);
 }
-// Hàm kiểm tra xem hiệu ứng có thuộc nhóm "Khung ảnh đơn / Sticker bình luận" hay không
 function isSingleFrameOrCommentSticker(effectName) {
-if (!effectName) {
-return false;
-}
-if (isPhotoboothStyle(effectName)) {
-return false;
-}
+if (!effectName) return false;
+if (isPhotoboothStyle(effectName)) return false;
 const lowerName = String(effectName).toLowerCase();
 return /^khung_|^frame_|pb_single_|cmt_locket|custom_frame|sticker_b_nh_lu_n/i.test(lowerName);
 }
-// Hàm tạo nhanh một chuỗi phản hồi JSON thành công chứa liên kết ảnh đích
 function mockSuccessResponse(targetUrl) {
 return {
 status: 200,
-headers: {
-"Content-Type": "application/json; charset=utf-8",
-"Access-Control-Allow-Origin": "*"
-},
+headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
 body: JSON.stringify({
 result: {
-outputUrl: targetUrl,
-output_url: targetUrl,
-url: targetUrl,
-imageUrl: targetUrl,
-image_url: targetUrl,
-status: 200,
-data: {
-outputUrl: targetUrl,
-output_url: targetUrl,
-url: targetUrl,
-imageUrl: targetUrl,
-image_url: targetUrl
-}
+outputUrl: targetUrl, output_url: targetUrl, url: targetUrl, imageUrl: targetUrl, image_url: targetUrl, status: 200,
+data: { outputUrl: targetUrl, output_url: targetUrl, url: targetUrl, imageUrl: targetUrl, image_url: targetUrl }
 }
 })
 };
 }
-// Hàm ghi đè toàn bộ các trường liên kết ảnh cũ bằng liên kết ảnh mới xử lý thành công
 function overrideImageUrls(responseObj, targetUrl) {
-if (!responseObj || typeof responseObj !== "object") {
-return;
-}
+if (!responseObj || typeof responseObj !== "object") return;
 const imageFields = ["outputUrl", "output_url", "url", "imageUrl", "image_url"];
-const searchObjects = [
-responseObj,
-responseObj.result,
-responseObj.result && responseObj.result.data,
-responseObj.data
-];
+const searchObjects = [responseObj, responseObj.result, responseObj.result && responseObj.result.data, responseObj.data];
 for (let i = 0; i < searchObjects.length; i++) {
 const currentObj = searchObjects[i];
 if (currentObj && typeof currentObj === "object") {
 for (let j = 0; j < imageFields.length; j++) {
-if (currentObj[imageFields[j]] !== undefined) {
-currentObj[imageFields[j]] = targetUrl;
+if (currentObj[imageFields[j]] !== undefined) currentObj[imageFields[j]] = targetUrl;
 }
 }
 }
-}
-if (!responseObj.result) {
-responseObj.result = {};
-}
+if (!responseObj.result) responseObj.result = {};
 responseObj.result.outputUrl = targetUrl;
 responseObj.result.output_url = targetUrl;
 responseObj.result.url = targetUrl;
@@ -303,48 +259,33 @@ responseObj.result.data.image_url = targetUrl;
 }
 }
 // === PHẦN CHÍNH: KIỂM SOÁT GÓI TIN MẠNG ===
-// 1. Nếu là Gói tin gửi đi (REQUEST): Chuyển hướng yêu cầu về Server proxy của tác giả
 if (typeof $response === "undefined") {
 try {
-if (!$request) {
-return $done({});
-}
-const proxyRedirectUrl = "workers.dev";
+if (!$request) return $done({});
+// FIX FIX CHÍNH: Thay thế "workers.dev" lỗi bằng link máy chủ đầy đủ của bạn
+const proxyRedirectUrl = "spring-sky-609d.dwcbaocuteee.workers.dev";
 let modifiedHeaders = Object.assign({}, $request && $request.headers || {});
-modifiedHeaders.Host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
-modifiedHeaders.host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
+modifiedHeaders.Host = "spring-sky-609d.dwcbaocuteee.workers.dev";
+modifiedHeaders.host = "spring-sky-609d.dwcbaocuteee.workers.dev";
 modifiedHeaders["X-Module-Origin"] = "Locket_YouTube";
-return $done({
-url: proxyRedirectUrl,
-headers: modifiedHeaders
-});
+return $done({ url: proxyRedirectUrl, headers: modifiedHeaders });
 } catch (error) {
 return $done({});
 }
 }
-// 2. Nếu là Gói tin nhận về (RESPONSE): Dọn sạch lỗi từ server Locket gốc để ép ứng dụng chạy mượt mà
 try {
 if (typeof $response !== "undefined" && $response.body) {
 let responseData = {};
-try {
-responseData = JSON.parse($response.body);
-} catch (e) {
-responseData = {};
-}
-// Xóa sạch các thông báo báo lỗi mua hàng, lỗi tính năng Premium
+try { responseData = JSON.parse($response.body); } catch (e) { responseData = {}; }
 delete responseData.error;
 delete responseData.errors;
 if (responseData.result) {
 delete responseData.result.error;
 delete responseData.result.errors;
 }
-// Trả lại gói dữ liệu sạch về ứng dụng Locket trên điện thoại
 return $done({
 status: 200,
-headers: {
-"Content-Type": "application/json; charset=utf-8",
-"Access-Control-Allow-Origin": "*"
-},
+headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
 body: JSON.stringify(responseData)
 });
 }
