@@ -1,6 +1,5 @@
-#!name=Locket Gold Full Fix - Private Server Tuti
-#!desc=Combo bẻ khóa Locket Gold an toàn: Giữ nguyên 100% bạn bè thật và chạy Sticker AI độc lập qua Cloudflare cá nhân. Độc quyền bởi AI Fix.
-#!system=ios
+#!name= Locket Gold - emmit Source
+#!desc= Module của emmit.
 
 [Rule]
 AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT
