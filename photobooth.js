@@ -1,294 +1,488 @@
-(function () {
-  const SERVER_URL = "https://workers.dev";
+// 🛡️ MinhHiep08 Security Shield - All Rights Reserved
+// Unauthorized copying or decompilation is strictly prohibited.
+(function() {
+    const _0x269454 = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
+    const _0x4934ad = {
+        stk_rose_flower: "rose_flower",
+        rose_flower: "rose_flower",
+        stk_shrek_ogre: "shrek_ogre",
+        shrek_ogre: "shrek_ogre",
+        stk_superhero_cape: "superhero_cape",
+        superhero_cape: "superhero_cape",
+        stk_spooky_ghost: "spooky_ghost",
+        spooky_ghost: "spooky_ghost",
+        stk_pirate_hat: "pirate_hat",
+        pirate_hat: "pirate_hat",
+        stk_volcano_lava: "volcano_lava",
+        volcano_lava: "volcano_lava",
+        stk_rain_storm: "rain_storm",
+        rain_storm: "rain_storm",
+        stk_fortnite_llama: "fortnite_llama",
+        fortnite_llama: "fortnite_llama",
+        stk_watercolor_art: "watercolor_art",
+        watercolor_art: "watercolor_art",
+        stk_golden_hour: "golden_hour",
+        golden_hour: "golden_hour",
+        stk_jungle_leaf: "jungle_leaf",
+        jungle_leaf: "jungle_leaf",
+        stk_cute_zombie: "cute_zombie",
+        cute_zombie: "cute_zombie",
+        stk_fireworks: "fireworks",
+        fireworks: "fireworks",
+        stk_new_year_2026: "new_year_2026",
+        new_year_2026: "new_year_2026",
+        stk_harry_potter: "harry_potter",
+        harry_potter: "harry_potter",
+        stk_minecraft: "minecraft",
+        minecraft: "minecraft",
+        stk_fire_flame: "fire_flame",
+        fire_flame: "fire_flame",
+        stk_giant_spider: "giant_spider",
+        giant_spider: "giant_spider",
+        stk_ocean_underwater: "ocean_underwater",
+        ocean_underwater: "ocean_underwater",
+        stk_ufo_alien: "ufo_alien",
+        ufo_alien: "ufo_alien",
+        stk_dio_disco: "disco_lights",
+        disco: "disco_lights",
+        stk_dio_pm2: "locket",
+        stk_dio_cash: "cash_money",
+        cash: "cash_money",
+        stk_dio_wedding: "wedding",
+        wedding: "wedding",
+        stk_dio_cowboy: "cowboy_cowgirl",
+        cowboy: "cowboy_cowgirl",
+        stk_dio_looksmaxing: "looks_maxxing",
+        looksmaxing: "looks_maxxing",
+        stk_dio_orange_wig: "okay_wig",
+        orange_wig: "okay_wig",
+        stk_dio_bleached_hair: "blonde_bleached",
+        bleached_hair: "blonde_bleached",
+        stk_dio_bob: "bob_cut",
+        bob: "bob_cut",
+        stk_dio_bearded: "beard",
+        bearded: "beard",
+        stk_dio_bearded_holiday: "bearded",
+        stk_dio_sweat_hearts: "sweet_hearts",
+        sweat_hearts: "sweet_hearts",
+        stk_dio_elf: "elf_cutout",
+        elf: "elf_cutout",
+        stk_dio_santa: "santa_cutout",
+        santa: "santa_cutout",
+        stk_dio_easter_bunny: "easter_bunney_cutout",
+        easter_bunny: "easter_bunney_cutout",
+        stk_dio_easter_chick: "easter_chick_cutout",
+        easter_chick: "easter_chick_cutout",
+        stk_dio_toothless: "toothless",
+        toothless: "toothless",
+        stk_dio_bye_brows: "bye_brows",
+        bye_brows: "bye_brows",
+        stk_dio_bowling_ball: "bowling_ball",
+        bowling_ball: "bowling_ball",
+        stk_dio_buns: "buns",
+        buns: "buns",
+        stk_dio_tatted: "tatted",
+        tatted: "tatted",
+        stk_dio_mohawk: "mohawk",
+        mohawk: "mohawk",
+        stk_dio_braces: "braces",
+        braces: "braces",
+        stk_dio_slimed: "slimed",
+        slimed: "slimed",
+        stk_dio_princess: "princess",
+        princess: "princess",
+        stk_dio_happy_birthday: "happy_birthday",
+        happy_birthday: "happy_birthday",
+        stk_dio_cutesy: "cutesy",
+        cutesy: "cutesy",
+        stk_dio_sticker_face: "sticker_face",
+        sticker_face: "sticker_face",
+        stk_dio_flower_crown: "flower_crown",
+        flower_crown: "flower_crown",
+        stk_dio_love_bug: "love_bug",
+        love_bug: "love_bug",
+        stk_dio_giraffe: "giraffe",
+        giraffe: "giraffe",
+        stk_dio_clown: "clown",
+        clown: "clown",
+        stk_dio_leprechaun: "leprechaun",
+        leprechaun: "leprechaun",
+        stk_dio_lucky_face: "lucky_face",
+        lucky_face: "lucky_face",
+        stk_dio_frosty: "frosty",
+        frosty: "frosty",
+        stk_dio_influencer: "influencer",
+        influencer: "influencer",
+        stk_gold_crown: "gold_crown",
+        gold_crown: "gold_crown",
+        stk_sweet_valentine: "sweet_valentine",
+        sweet_valentine: "sweet_valentine",
+        stk_christmas_bell: "christmas_bell",
+        christmas_bell: "christmas_bell",
+        stk_tet_mai: "tet_mai",
+        tet_mai: "tet_mai",
+        stk_halloween_pumpkin: "halloween_pumpkin",
+        halloween_pumpkin: "halloween_pumpkin",
+        stk_midautumn_rabbit: "midautumn_rabbit",
+        midautumn_rabbit: "midautumn_rabbit"
+    };
+    const _0x194672 = {
+        stk_gold_crown: "Place an ornate gleaming gold royal crown studded with red and green gemstones on top of the head or main subject",
+        stk_sweet_valentine: "Add romantic soft glowing translucent pink hearts and gentle heart-shaped bokeh floating gracefully throughout the scene and surroundings (with a warm soft cheek glow if a person is present)",
+        stk_christmas_bell: "Add warm twinkling Christmas fairy lights, subtle golden sparkles, festive pine boughs, and holly berry accents throughout the scene and surroundings",
+        stk_tet_mai: "Add vibrant blooming yellow apricot blossom branches (hoa mai), golden sparkles, and floating red lucky money envelopes (lì xì) gracefully throughout the scene and surroundings",
+        stk_halloween_pumpkin: "Add glowing carved jack-o-lantern pumpkins placed naturally in the scene with warm flickering candlelight accents, autumn leaves, and a spooky festive atmosphere",
+        stk_midautumn_rabbit: "Add a luminous golden full moon glow, gentle floating celestial sparkles, and glowing Mid-Autumn festival lanterns (đèn ông sao) floating across the scene",
+        stk_dio_pm2: "Add a magical mystical aura: glowing purple and gold sparkles with drifting candle-lit embers and arcane shimmer floating throughout the scene",
+        stk_dio_looksmaxing: "Enhance the photo with clean studio portrait lighting, soft depth of field, clear bright skin, and flattering radiant illumination",
+        stk_dio_influencer: "Add a popular creator camera aesthetic: bright circular ring-light catchlights in the eyes, soft luminous filter glow, and subtle sparkle highlights",
+        stk_dio_toothless: "Add a playful funny sticker effect with a goofy cartoon smile mouth overlay and cartoon starry sparkles",
+        stk_dio_orange_wig: "Replace only the hair or headwear with a glossy bright yellow-orange chin-length bob wig with neat blunt bangs",
+        stk_dio_bye_brows: "Bleach the eyebrows so pale they are completely invisible, creating a sleek bleached-eyebrow look",
+        stk_dio_braces: "Add classic shiny metal dental braces with small brackets onto the teeth",
+        stk_dio_tatted: "Add fun colorful festival face-paint art: cute small temporary decal designs like stars, music notes, and playful doodles on the cheeks",
+        stk_dio_bearded: "Place a fun theatrical novelty costume prop beard and mustache in a playful dress-up style",
+        stk_dio_buns: "Replace only the hairstyle with two cute voluminous high space buns on top of the head",
+        stk_dio_mohawk: "Replace only the hairstyle with a tall spiked punk mohawk haircut with cleanly shaved faded sides",
+        stk_dio_bob: "Replace only the hairstyle with a chic glossy chestnut-brown chin-length wavy bob haircut",
+        stk_dio_bowling_ball: "Remove all hair to make the head completely bald, smooth, and clean-shaven",
+        stk_dio_bleached_hair: "Replace only the hair with a bright platinum-blonde textured modern haircut",
+        stk_dio_princess: "Place a sparkling silver royal tiara adorned with pink heart gemstones on top of the head or main subject",
+        stk_dio_cash: "Add crisp dollar bills floating, raining down, and scattering dynamically across the scene and surroundings",
+        stk_dio_slimed: "Add bright neon-green gooey slime playfully dripping and splashing over the top of the subject and surfaces",
+        stk_dio_happy_birthday: "Add a joyful explosion of colorful rainbow party confetti, flying serpentine streamers, and celebratory party sparkles all across the scene",
+        stk_dio_disco: "Add dazzling mirrored disco ball reflections with vibrant shimmering spots of multi-colored light and retro dance-party beams dancing across the entire scene and surroundings",
+        stk_dio_flower_crown: "Place a delicate floral crown woven with pastel pink and white roses and green leaves on top of the head or main subject",
+        stk_dio_cutesy: "Add a cute playful photo filter effect with pastel pink cheek blush, tiny subtle heart sparkles, and bright friendly lighting",
+        stk_dio_sticker_face: "Add cute decorative pastel glitter heart stickers on the cheeks or subject surface (in purple, pink, and yellow)",
+        stk_dio_love_bug: "Place a cute headband with two springy yellow heart-shaped antennae on top of the head or subject",
+        stk_dio_cowboy: "Place a brown leather cowboy hat on the head and a cow-print bandana neckerchief around the neck of the subject",
+        stk_dio_giraffe: "Add a cute plush giraffe costume hood with spotted print, soft ears, and small horns framing the face or subject",
+        stk_dio_wedding: "Add celebratory formal gala attire: an elegant festive white satin hair ribbon and a celebratory flower boutonniere on the collar",
+        stk_dio_clown: "Replace only the hairstyle with a voluminous, fluffy curly rainbow afro clown wig with a playful red nose accent",
+        stk_dio_sweat_hearts: "Add colorful pastel candy conversation hearts stamped with sweet love words floating and tumbling gently through the air across the scene",
+        stk_dio_bearded_holiday: "Place a fluffy snow-white Santa Claus costume beard and mustache in a warm holiday celebration style",
+        stk_dio_frosty: "Add delicate frozen snowflakes, glistening white frost crystals, and soft winter mist clinging to the subject and edges with an icy-blue rim glow",
+        stk_dio_elf: "Place a pointed green and red Christmas elf hat with a golden jingle bell on top of the head or subject",
+        stk_dio_santa: "Place a classic red Santa Claus hat with fluffy white fur trim and pompom on top of the head or subject",
+        stk_dio_easter_bunny: "Add a cozy white plush bunny hoodie with upright bunny ears and soft pink inner ears framing the head or subject",
+        stk_dio_leprechaun: "Place an emerald-green St. Patrick leprechaun top hat with a black band and gold buckle on top of the head or subject",
+        stk_dio_easter_chick: "Add a cute bright yellow chick costume hoodie with a small orange beak and crest framing the head or subject",
+        stk_dio_lucky_face: "Add a vibrant green four-leaf clover decal on the cheek or subject with subtle emerald sparkle accents"
+    };
+    const _0x8b8527 = {
+        rose_flower: "Show the person in the photo with the exact same pose and background, but have them with a single rose in their mouth. If no person is present in the input, do not add anything to the output.",
+        stk_rose_flower: "Show the person in the photo with the exact same pose and background, but have them with a single rose in their mouth. If no person is present in the input, do not add anything to the output.",
+        shrek_ogre: "Show the person in the photo with the exact same pose and background, but transform them into Shrek with rounded ears, and rustic clothing while preserving the pose. Keep their hairstyle, but make it look natural in the Shrek style.",
+        stk_shrek_ogre: "Show the person in the photo with the exact same pose and background, but transform them into Shrek with rounded ears, and rustic clothing while preserving the pose. Keep their hairstyle, but make it look natural in the Shrek style.",
+        superhero_cape: "Show the person in the photo with the exact same pose and background, but suit them up like a superhero in a blue and red outfit with a flowing cape while keeping their pose and framing identical.",
+        stk_superhero_cape: "Show the person in the photo with the exact same pose and background, but suit them up like a superhero in a blue and red outfit with a flowing cape while keeping their pose and framing identical.",
+        spooky_ghost: "Show the person in the photo with the exact same pose, expression, and background, but subtly insert a realistic-looking ghost somewhere in the background. If no person is present, do not add any people to the output.",
+        stk_spooky_ghost: "Show the person in the photo with the exact same pose, expression, and background, but subtly insert a realistic-looking ghost somewhere in the background. If no person is present, do not add any people to the output.",
+        pirate_hat: "Show the person in the photo with the exact same pose and background, but dress them like a pirate from Pirates of the Caribbean while keeping their pose and facial expression identical.",
+        stk_pirate_hat: "Show the person in the photo with the exact same pose and background, but dress them like a pirate from Pirates of the Caribbean while keeping their pose and facial expression identical.",
+        volcano_lava: "Show the person in the photo with the exact same pose, background, and facial expression, but replace the ground with molten lava, glowing magma cracks, and volcanic sparks while keeping them rooted to the spot. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        stk_volcano_lava: "Show the person in the photo with the exact same pose, background, and facial expression, but replace the ground with molten lava, glowing magma cracks, and volcanic sparks while keeping them rooted to the spot. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        rain_storm: "Retain the exact pose, facial features, distance, and background from the original image. Dress the subject as a character from the Wuthering Heights movie.\n\nFor Men: Dress them in the Jacob Elordi style with matching hair and outfit.\n\nFor Women: Dress them in the Margot Robbie style: A dramatic, historical-inspired red gown with a high-gloss, lacquered red skirt that is extremely voluminous and structured, forming a full bell shape from the waist down if that part is visible in the initial image. The skirt looks stiff and reflective, almost like polished vinyl. The bodice is corset-style, fitted tightly to the torso in the same glossy red material, with thin shoulder straps, a wide scoop rounded neckline, and the dress cinching the waist and creating a structured, corset-inspired silhouette WITHOUT visible boning, lacing or busks, and featuring a sheer billowing white long puffed sleeve shirt worn underneath with a scooped neckline for the white undershirt peeking out from behind the dress.\n\nConstraints: Do not modify the person's physical features, body shape, or positioning. Keep the framing and background 100% unchanged. If no person is present, return the image unaltered. Do not include Jacob Elordi or Margot Robbie themselves in the output image.",
+        stk_rain_storm: "Retain the exact pose, facial features, distance, and background from the original image. Dress the subject as a character from the Wuthering Heights movie.\n\nFor Men: Dress them in the Jacob Elordi style with matching hair and outfit.\n\nFor Women: Dress them in the Margot Robbie style: A dramatic, historical-inspired red gown with a high-gloss, lacquered red skirt that is extremely voluminous and structured, forming a full bell shape from the waist down if that part is visible in the initial image. The skirt looks stiff and reflective, almost like polished vinyl. The bodice is corset-style, fitted tightly to the torso in the same glossy red material, with thin shoulder straps, a wide scoop rounded neckline, and the dress cinching the waist and creating a structured, corset-inspired silhouette WITHOUT visible boning, lacing or busks, and featuring a sheer billowing white long puffed sleeve shirt worn underneath with a scooped neckline for the white undershirt peeking out from behind the dress.\n\nConstraints: Do not modify the person's physical features, body shape, or positioning. Keep the framing and background 100% unchanged. If no person is present, return the image unaltered. Do not include Jacob Elordi or Margot Robbie themselves in the output image.",
+        fortnite_llama: "Show the person in the photo with the exact same pose, expression, and background, but make the entire scene look like it was rendered inside a video game, similar to the style of Fortnite. Show no extra overlays or text on top of the photo. If no person is present, do not add any people to the output.",
+        stk_fortnite_llama: "Show the person in the photo with the exact same pose, expression, and background, but make the entire scene look like it was rendered inside a video game, similar to the style of Fortnite. Show no extra overlays or text on top of the photo. If no person is present, do not add any people to the output.",
+        watercolor_art: "Show the person in the photo with the exact same pose, expression, and background, but render the entire scene as a watercolor painting with flowing brush strokes. If no person is present, do not add any people to the output.",
+        stk_watercolor_art: "Show the person in the photo with the exact same pose, expression, and background, but render the entire scene as a watercolor painting with flowing brush strokes. If no person is present, do not add any people to the output.",
+        golden_hour: "Show the person in the photo with the exact same pose, expression, and background, but make the scene look like it was captured during peak golden hour with warm sunlight and long shadows. If no person is present, do not add any people to the output.",
+        stk_golden_hour: "Show the person in the photo with the exact same pose, expression, and background, but make the scene look like it was captured during peak golden hour with warm sunlight and long shadows. If no person is present, do not add any people to the output.",
+        jungle_leaf: "Show the person in the photo with the exact same pose, background, and facial expression, but with their background surroundings overgrown with plants in a seamless way. The person and their background should remain in the same positions. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        stk_jungle_leaf: "Show the person in the photo with the exact same pose, background, and facial expression, but with their background surroundings overgrown with plants in a seamless way. The person and their background should remain in the same positions. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        cute_zombie: "Show the person in the photo with the exact same pose and background, but turn them into a zombie while keeping their pose and expression identical.",
+        stk_cute_zombie: "Show the person in the photo with the exact same pose and background, but turn them into a zombie while keeping their pose and expression identical.",
+        fireworks: "Show the person in the photo with the exact same pose and background, but fill the scene with fireworks exploding in the night sky and reflecting colorful light onto the subject. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        stk_fireworks: "Show the person in the photo with the exact same pose and background, but fill the scene with fireworks exploding in the night sky and reflecting colorful light onto the subject. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        new_year_2026: "Show the person in the photo with the exact same pose and background, but have them wearing decorative glasses that say Happy New Year 2026. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        stk_new_year_2026: "Show the person in the photo with the exact same pose and background, but have them wearing decorative glasses that say Happy New Year 2026. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        harry_potter: "Show the person in the photo with the exact same pose and background, but show them as a character from Harry Potter wearing a robe of one of the four houes. Keep the pose and framing identical and do not change the background.",
+        stk_harry_potter: "Show the person in the photo with the exact same pose and background, but show them as a character from Harry Potter wearing a robe of one of the four houes. Keep the pose and framing identical and do not change the background.",
+        minecraft: "Show the person in the photo with the exact same pose, expression, and background, but make everything in the scene look like it was created from Minecraft-style blocks and show people as Minecraft characters. If no person is present, do not add any people to the output.",
+        stk_minecraft: "Show the person in the photo with the exact same pose, expression, and background, but make everything in the scene look like it was created from Minecraft-style blocks and show people as Minecraft characters. If no person is present, do not add any people to the output.",
+        fire_flame: "Show the persons in the photo with the exact same pose and background, but with a dramatic theatrical flame effect appearing just in front of the subject's face, as if they are performing a fantasy fire-breathing act, captured with a modern iPhone camera look.\n\nThe flame should appear as a staged visual effect, suspended in front of the mouth area without showing fire originating from inside the body. Keep the effect believable and cinematic, with a bright yellow-white core, orange and red edges, subtle motion blur, and gentle heat distortion in the nearby air.\n\nAdd a soft warm glow on nearby facial features and clothing, consistent with the flame's position, while preserving the original lighting of the scene. Do not show burns, smoke inhalation, injury, pain, damage, or distress. Do not alter the person's face, expression, identity, or pose.\n\nKeep the background, framing, depth of field, and image quality identical to the original, with the flame effect appearing as a safe staged performance element captured in-camera. Do not change the overall compsition of the photo, do not add new people to the photo, only show each person in the photo one time.",
+        stk_fire_flame: "Show the persons in the photo with the exact same pose and background, but with a dramatic theatrical flame effect appearing just in front of the subject's face, as if they are performing a fantasy fire-breathing act, captured with a modern iPhone camera look.\n\nThe flame should appear as a staged visual effect, suspended in front of the mouth area without showing fire originating from inside the body. Keep the effect believable and cinematic, with a bright yellow-white core, orange and red edges, subtle motion blur, and gentle heat distortion in the nearby air.\n\nAdd a soft warm glow on nearby facial features and clothing, consistent with the flame's position, while preserving the original lighting of the scene. Do not show burns, smoke inhalation, injury, pain, damage, or distress. Do not alter the person's face, expression, identity, or pose.\n\nKeep the background, framing, depth of field, and image quality identical to the original, with the flame effect appearing as a safe staged performance element captured in-camera. Do not change the overall compsition of the photo, do not add new people to the photo, only show each person in the photo one time.",
+        giant_spider: "Show the person in the photo with the exact same pose, expression, and background, but place a realistic spider perched on them somewhere, such as their shoulder or head. If no person is present, do not add any people to the output.",
+        stk_giant_spider: "Show the person in the photo with the exact same pose, expression, and background, but place a realistic spider perched on them somewhere, such as their shoulder or head. If no person is present, do not add any people to the output.",
+        ocean_underwater: "Show the person in the photo with the exact same pose, background, and facial expression, but as if them and their surrounding environment was underwater. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        stk_ocean_underwater: "Show the person in the photo with the exact same pose, background, and facial expression, but as if them and their surrounding environment was underwater. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        ufo_alien: "Show the person in the photo with the exact same pose and background, but show a subtle UFO hovering in the sky or an alien somewhere hidden somewhere in the user's background. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        stk_ufo_alien: "Show the person in the photo with the exact same pose and background, but show a subtle UFO hovering in the sky or an alien somewhere hidden somewhere in the user's background. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
+        photobooth: "Show the persons in the photo with the exact same pose and background, captured with a Korean photobooth 4-cut aesthetic, vintage soft lighting, clear facial features, 8k resolution, modern iPhone camera look.",
+        photobooth_4cut: "Show the persons in the photo with the exact same pose and background, captured with a Korean photobooth 4-cut aesthetic, vintage soft lighting, clear facial features, 8k resolution, modern iPhone camera look.",
+        photobooth_cute: "Show the persons in the photo with the exact same pose and background, captured with a cute pastel aesthetic, soft lighting, 8k resolution, modern iPhone camera look.",
+        pb_strawberry: "Show the persons in the photo with the exact same pose and background, captured with a cute pastel strawberry photobooth aesthetic, soft lighting, 8k resolution, modern iPhone camera look.",
+        pb_vintage: "Show the persons in the photo with the exact same pose and background, captured with vintage 90s film aesthetic, warm nostalgic lighting, 8k resolution, modern iPhone camera look.",
+        pb_galaxy: "Show the persons in the photo with the exact same pose and background, captured with dreamy galaxy stars lighting, soft ambient glow, 8k resolution, modern iPhone camera look.",
+        pb_holo_4cut: "Show the persons in the photo with the exact same pose and background, captured with holographic Y2K aesthetic, iridescent chrome shine, 8k resolution, modern iPhone camera look.",
+        pb_scrapbook_ripped_4cut: "Show the persons in the photo with the exact same pose and background, captured with scrapbook vintage paper aesthetic, warm film texture, 8k resolution, modern iPhone camera look.",
+        pb_ripped_paper_4cut: "Show the persons in the photo with the exact same pose and background, captured with artistic ripped paper collage aesthetic, soft shadows, 8k resolution, modern iPhone camera look.",
+        pb_denim_ripped_2x2: "Show the persons in the photo with the exact same pose and background, captured with stylish 90s denim aesthetic, cool tone lighting, 8k resolution, modern iPhone camera look.",
+        frame_classic_pb: "Show the persons in the photo with the exact same pose and background, captured with classic black and white film photobooth aesthetic, dramatic soft lighting, 8k resolution, modern iPhone camera look."
+    };
 
-  // Mảng ánh xạ mã sticker của Locket sang tên hiệu ứng AI tương ứng
-  const stickerMapping = {
-    stk_rose_flower: "rose_flower",
-    rose_flower: "rose_flower",
-    stk_shrek_ogre: "shrek_ogre",
-    shrek_ogre: "shrek_ogre",
-    stk_superhero_cape: "superhero_cape",
-    superhero_cape: "superhero_cape",
-    stk_spooky_ghost: "spooky_ghost",
-    spooky_ghost: "spooky_ghost",
-    stk_pirate_hat: "pirate_hat",
-    pirate_hat: "pirate_hat",
-    stk_volcano_lava: "volcano_lava",
-    volcano_lava: "volcano_lava",
-    stk_rain_storm: "rain_storm",
-    rain_storm: "rain_storm",
-    stk_fortnite_llama: "fortnite_llama",
-    fortnite_llama: "fortnite_llama",
-    stk_watercolor_art: "watercolor_art",
-    watercolor_art: "watercolor_art",
-    stk_golden_hour: "golden_hour",
-    golden_hour: "golden_hour",
-    stk_jungle_leaf: "jungle_leaf",
-    jungle_leaf: "jungle_leaf",
-    stk_cute_zombie: "cute_zombie",
-    cute_zombie: "cute_zombie",
-    stk_fireworks: "fireworks",
-    fireworks: "fireworks",
-    stk_new_year_2026: "new_year_2026",
-    new_year_2026: "new_year_2026",
-    stk_harry_potter: "harry_potter",
-    harry_potter: "harry_potter",
-    stk_minecraft: "minecraft",
-    minecraft: "minecraft",
-    stk_fire_flame: "fire_flame",
-    fire_flame: "fire_flame",
-    stk_giant_spider: "giant_spider",
-    giant_spider: "giant_spider",
-    stk_ocean_underwater: "ocean_underwater",
-    ocean_underwater: "ocean_underwater",
-    stk_ufo_alien: "ufo_alien",
-    ufo_alien: "ufo_alien",
-    stk_dio_disco: "disco_lights",
-    disco: "disco_lights",
-    stk_dio_pm2: "locket",
-    stk_dio_cash: "cash_money",
-    cash: "cash_money",
-    stk_dio_wedding: "wedding",
-    wedding: "wedding",
-    stk_dio_cowboy: "cowboy_cowgirl",
-    cowboy: "cowboy_cowgirl",
-    stk_dio_looksmaxing: "looks_maxxing",
-    looksmaxing: "looks_maxxing",
-    stk_dio_orange_wig: "okay_wig",
-    orange_wig: "okay_wig",
-    stk_dio_bleached_hair: "blonde_bleached",
-    bleached_hair: "blonde_bleached",
-    stk_dio_bob: "bob_cut",
-    bob: "bob_cut",
-    stk_dio_bearded: "beard",
-    bearded: "beard",
-    stk_dio_bearded_holiday: "bearded",
-    stk_dio_sweat_hearts: "sweet_hearts",
-    sweat_hearts: "sweet_hearts",
-    stk_dio_elf: "elf_cutout",
-    elf: "elf_cutout",
-    stk_dio_santa: "santa_cutout",
-    santa: "santa_cutout",
-    stk_dio_easter_bunny: "easter_bunney_cutout",
-    easter_bunny: "easter_bunney_cutout",
-    stk_dio_easter_chick: "easter_chick_cutout",
-    easter_chick: "easter_chick_cutout",
-    stk_dio_toothless: "toothless",
-    toothless: "toothless",
-    stk_dio_bye_brows: "bye_brows",
-    bye_brows: "bye_brows",
-    stk_dio_bowling_ball: "bowling_ball",
-    bowling_ball: "bowling_ball",
-    stk_dio_buns: "buns",
-    buns: "buns",
-    stk_dio_tatted: "tatted",
-    tatted: "tatted",
-    stk_dio_mohawk: "mohawk",
-    mohawk: "mohawk",
-    stk_dio_braces: "braces",
-    braces: "braces",
-    stk_dio_slimed: "slimed",
-    slimed: "slimed",
-    stk_dio_princess: "princess",
-    princess: "princess",
-    stk_dio_happy_birthday: "happy_birthday",
-    happy_birthday: "happy_birthday",
-    stk_dio_cutesy: "cutesy",
-    cutesy: "cutesy",
-    stk_dio_sticker_face: "sticker_face",
-    sticker_face: "sticker_face",
-    stk_dio_flower_crown: "flower_crown",
-    flower_crown: "flower_crown",
-    stk_dio_love_bug: "love_bug",
-    love_bug: "love_bug",
-    stk_dio_giraffe: "giraffe",
-    giraffe: "giraffe",
-    stk_dio_clown: "clown",
-    clown: "clown",
-    stk_dio_leprechaun: "leprechaun",
-    leprechaun: "leprechaun",
-    stk_dio_lucky_face: "lucky_face",
-    lucky_face: "lucky_face",
-    stk_dio_frosty: "frosty",
-    frosty: "frosty",
-    stk_dio_influencer: "influencer",
-    influencer: "influencer"
-  };
+    function _0x1bc13a(_0xdfb727) {
+        try {
+            if (typeof $persistentStore !== "undefined") {
+                return $persistentStore.read(_0xdfb727) || "";
+            }
+            if (typeof $prefs !== "undefined") {
+                return $prefs.valueForKey(_0xdfb727) || "";
+            }
+        } catch (_0x575d1b) {}
+        return "";
+    }
 
-  // Danh sách các câu lệnh Prompt AI mẫu tương ứng với từng filter
-  const aiPrompts = {
-    rose_flower: "Show the person in the photo with the exact same pose and background, but have them with a single rose in their mouth. If no person is present in the input, do not add anything to the output.",
-    stk_rose_flower: "Show the person in the photo with the exact same pose and background, but have them with a single rose in their mouth. If no person is present in the input, do not add anything to the output.",
-    shrek_ogre: "Show the person in the photo with the exact same pose and background, but transform them into Shrek with rounded ears, and rustic clothing while preserving the pose. Keep their hairstyle, but make it look natural in the Shrek style.",
-    stk_shrek_ogre: "Show the person in the photo with the exact same pose and background, but transform them into Shrek with rounded ears, and rustic clothing while preserving the pose. Keep their hairstyle, but make it look natural in the Shrek style.",
-    superhero_cape: "Show the person in the photo with the exact same pose and background, but suit them up like a superhero in a blue and red outfit with a flowing cape while keeping their pose and framing identical.",
-    stk_superhero_cape: "Show the person in the photo with the exact same pose and background, but suit them up like a superhero in a blue and red outfit with a flowing cape while keeping their pose and framing identical.",
-    spooky_ghost: "Show the person in the photo with the exact same pose, expression, and background, but subtly insert a realistic-looking ghost somewhere in the background. If no person is present, do not add any people to the output.",
-    stk_spooky_ghost: "Show the person in the photo with the exact same pose, expression, and background, but subtly insert a realistic-looking ghost somewhere in the background. If no person is present, do not add any people to the output.",
-    pirate_hat: "Show the person in the photo with the exact same pose and background, but dress them like a pirate from Pirates of the Caribbean while keeping their pose and facial expression identical.",
-    stk_pirate_hat: "Show the person in the photo with the exact same pose and background, but dress them like a pirate from Pirates of the Caribbean while keeping their pose and facial expression identical.",
-    volcano_lava: "Show the person in the photo with the exact same pose, background, and facial expression, but replace the ground with molten lava, glowing magma cracks, and volcanic sparks while keeping them rooted to the spot. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-    stk_volcano_lava: "Show the person in the photo with the exact same pose, background, and facial expression, but replace the ground with molten lava, glowing magma cracks, and volcanic sparks while keeping them rooted to the spot. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-    rain_storm: "Retain the exact pose, facial features, distance, and background from the original image. Dress the subject as a character from the Wuthering Heights movie...\n\nFor Men: Dress them in the Jacob Elordi style...\n\nFor Women: Dress them in the Margot Robbie style...",
-    stk_rain_storm: "Retain the exact pose, facial features, distance, and background from the original image. Dress the subject as a character from the Wuthering Heights movie...\n\nFor Men: Dress them in the Jacob Elordi style...\n\nFor Women: Dress them in the Margot Robbie style...",
-    fortnite_llama: "Show the person in the photo with the exact same pose, expression, and background, but make the entire scene look like it was rendered inside a video game, similar to the style of Fortnite. Show no extra overlays or text on top of the photo. If no person is present, do not add any people to the output.",
-    stk_fortnite_llama: "Show the person in the photo with the exact same pose, expression, and background, but make the entire scene look like it was rendered inside a video game, similar to the style of Fortnite. Show no extra overlays or text on top of the photo. If no person is present, do not add any people to the output.",
-    watercolor_art: "Show the person in the photo with the exact same pose, expression, and background, but render the entire scene as a watercolor painting with flowing brush strokes. If no person is present, do not add any people to the output.",
-    stk_watercolor_art: "Show the person in the photo with the exact same pose, expression, and background, but render the entire scene as a watercolor painting with flowing brush strokes. If no person is present, do not add any people to the output.",
-    golden_hour: "Show the person in the photo with the exact same pose, expression, and background, but make the scene look like it was captured during peak golden hour with warm sunlight and long shadows. If no person is present, do not add any people to the output.",
-    stk_golden_hour: "Show the person in the photo with the exact same pose, expression, and background, but make the scene look like it was captured during peak golden hour with warm sunlight and long shadows. If no person is present, do not add any people to the output.",
-    jungle_leaf: "Show the person in the photo with the exact same pose, background, and facial expression, but with their background surroundings overgrown with plants in a seamless way. The person and their background should remain in the same positions. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-    stk_jungle_leaf: "Show the person in the photo with the exact same pose, background, and facial expression, but with their background surroundings overgrown with plants in a seamless way. The person and their background should remain in the same positions. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-cute_zombie: "Show the person in the photo with the exact same pose and background, but turn them into a zombie while keeping their pose and expression identical.",
-stk_cute_zombie: "Show the person in the photo with the exact same pose and background, but turn them into a zombie while keeping their pose and expression identical.",
-fireworks: "Show the person in the photo with the exact same pose and background, but fill the scene with fireworks exploding in the night sky and reflecting colorful light onto the subject. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-stk_fireworks: "Show the person in the photo with the exact same pose and background, but fill the scene with fireworks exploding in the night sky and reflecting colorful light onto the subject. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-new_year_2026: "Show the person in the photo with the exact same pose and background, but have them wearing decorative glasses that say Happy New Year 2026. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-stk_new_year_2026: "Show the person in the photo with the exact same pose and background, but have them wearing decorative glasses that say Happy New Year 2026. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-harry_potter: "Show the person in the photo with the exact same pose and background, but show them as a character from Harry Potter wearing a robe of one of the four houes. Keep the pose and framing identical and do not change the background.",
-stk_harry_potter: "Show the person in the photo with the exact same pose and background, but show them as a character from Harry Potter wearing a robe of one of the four houes. Keep the pose and framing identical and do not change the background.",
-minecraft: "Show the person in the photo with the exact same pose, expression, and background, but make everything in the scene look like it was created from Minecraft-style blocks and show people as Minecraft characters. If no person is present, do not add any people to the output.",
-stk_minecraft: "Show the person in the photo with the exact same pose, expression, and background, but make everything in the scene look like it was created from Minecraft-style blocks and show people as Minecraft characters. If no person is present, do not add any people to the output.",
-fire_flame: "Show the persons in the photo with the exact same pose and background, but with a dramatic theatrical flame effect appearing just in front of the subject's face, as if they are performing a fantasy fire-breathing act, captured with a modern iPhone camera look...",
-stk_fire_flame: "Show the persons in the photo with the exact same pose and background, but with a dramatic theatrical flame effect appearing just in front of the subject's face, as if they are performing a fantasy fire-breathing act, captured with a modern iPhone camera look...",
-giant_spider: "Show the person in the photo with the exact same pose, expression, and background, but place a realistic spider perched on them somewhere, such as their shoulder or head. If no person is present, do not add any people to the output.",
-stk_giant_spider: "Show the person in the photo with the exact same pose, expression, and background, but place a realistic spider perched on them somewhere, such as their shoulder or head. If no person is present, do not add any people to the output.",
-ocean_underwater: "Show the person in the photo with the exact same pose, background, and facial expression, but as if them and their surrounding environment was underwater. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-stk_ocean_underwater: "Show the person in the photo with the exact same pose, background, and facial expression, but as if them and their surrounding environment was underwater. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-ufo_alien: "Show the person in the photo with the exact same pose and background, but show a subtle UFO hovering in the sky or an alien somewhere hidden somewhere in the user's background. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-stk_ufo_alien: "Show the person in the photo with the exact same pose and background, but show a subtle UFO hovering in the sky or an alien somewhere hidden somewhere in the user's background. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-disco_lights: "Show the persons in the photo with the exact same pose and background, but with disco-style lighting effects cast across the scene, captured with a modern iPhone camera look...",
-// FIX BIẾN INFLUENCER: Thay đổi nháy kép thành nháy đơn để tránh lỗi cú pháp hỏng code
-influencer: "Show the persons in the photo with the exact same pose and background, but with a hyperbolic 'influencer' makeup look applied to the face, captured with a modern iPhone camera look...",
-princess: "Show the person in the photo with the exact same pose and background, but portray them as a prince charming or a beautiful princess from a fairytale.",
-looks_maxxing: "Show the persons in the photo with the exact same pose and background, but with a full, full-length beard added to the face, captured with a modern iPhone camera look...",
-beard: "Show the persons in the photo with the exact same pose and background, but with a full, full-length beard added to the face, captured with a modern iPhone camera look...",
-slimed: "Show the persons in the photo with the exact same pose and background, but with thick green Nickelodeon-style slime being poured and splashing throughout the scene, captured with a modern iPhone camera look...",
-cowboy_cowgirl: "Show the persons in the photo with the exact same pose and background, but with subjects dressed in Western attire appropriate to each person, captured with a modern iPhone camera look...",
-clown: "Show the persons in the photo with the exact same pose and background, but styled as clowns, captured with a modern iPhone camera look...",
-tatted: "Show the persons in the photo with the exact same pose and background, but with face tattoos applied, captured with a modern iPhone camera look...",
-bye_brows: "Show the persons in the photo with the exact same pose and background, but with only the eyebrow hair removed.",
-bowling_ball: "Show the persons in the photo with the exact same pose and background, but with a completely bald head.",
-blonde_bleached: "Show the persons in the photo with the exact same pose and background, but with a buzzed and bleached hairstyle.",
-bob_cut: "Show the persons in the photo with the exact same pose and background, but with their hair cut into a bob hairstyle, captured with a modern iPhone camera look...",
-mohawk: "Show the persons in the photo with the exact same pose and background, but with a mohawk hairstyle featuring shaved sides and a raised center strip, captured with a modern iPhone camera look...",
-braces: "Show the persons in the photo with the exact same pose and background, but with multicolored braces visible on their teeth, captured with a modern iPhone camera look...",
-flower_crown: "Show the persons in the photo with the exact same pose and background, but wearing a mixed wildflower crown.",
-giraffe: "Show the persons in the photo with the exact same pose and background, but with the subject wearing a giraffe costume, captured with a modern iPhone camera look...",
-leprechaun: "Show the person in the photo with the exact same pose, framing, expression, and background, but dress them in leprechaun costume...",
-lucky_face: "Show the person in the photo with the exact same pose and background, but add cute, subtle freckles concentrated across the bridge of the nose and upper cheeks...",
-elf_cutout: "Show the person in the photo with the exact same pose and background, but dressed up as an Elf. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-santa_cutout: "Show the person in the photo with the exact same pose and background, but dressed up as Santa Claus. Ensure the person is in the exact same pose and positioning within the frame. If no face is present, do not show any people in the output, only ever show people who were in the original input image.",
-easter_chick_cutout: "Show the persons in the photo with the exact same pose and background, but put them in a bright yellow Easter chick costume...",
-photobooth: "Show the persons in the photo with the exact same pose and background, captured with a Korean photobooth 4-cut aesthetic, vintage soft lighting, clear facial features, 8k resolution, modern iPhone camera look.",
-photobooth_4cut: "Show the persons in the photo with the exact same pose and background, captured with a Korean photobooth 4-cut aesthetic, vintage soft lighting, clear facial features, 8k resolution, modern iPhone camera look.",
-photobooth_cute: "Show the persons in the photo with the exact same pose and background, captured with a cute pastel aesthetic, soft lighting, 8k resolution, modern iPhone camera look.",
-pb_strawberry: "Show the persons in the photo with the exact same pose and background, captured with a cute pastel strawberry photobooth aesthetic, soft lighting, 8k resolution, modern iPhone camera look.",
-pb_vintage: "Show the persons in the photo with the exact same pose and background, captured with vintage 90s film aesthetic, warm nostalgic lighting, 8k resolution, modern iPhone camera look.",
-pb_galaxy: "Show the persons in the photo with the exact same pose and background, captured with dreamy galaxy stars lighting, soft ambient glow, 8k resolution, modern iPhone camera look.",
-pb_holo_4cut: "Show the persons in the photo with the exact same pose and background, captured with holographic Y2K aesthetic, iridescent chrome shine, 8k resolution, modern iPhone camera look.",
-pb_scrapbook_ripped_4cut: "Show the persons in the photo with the exact same pose and background, captured with scrapbook vintage paper aesthetic, warm film texture, 8k resolution, modern iPhone camera look.",
-pb_ripped_paper_4cut: "Show the persons in the photo with the exact same pose and background, captured with artistic ripped paper collage aesthetic, soft shadows, 8k resolution, modern iPhone camera look.",
-pb_denim_ripped_2x2: "Show the persons in the photo with the exact same pose and background, captured with stylish 90s denim aesthetic, cool tone lighting, 8k resolution, modern iPhone camera look.",
-frame_classic_pb: "Show the persons in the photo with the exact same pose and background, captured with classic black and white film photobooth aesthetic, dramatic soft lighting, 8k resolution, modern iPhone camera look."
-};
-// Hàm đọc dữ liệu cấu hình lưu trữ trong hệ thống proxy
-function readPersistentStore(key) {
-try {
-if (typeof $persistentStore !== "undefined") return $persistentStore.read(key) || "";
-if (typeof $prefs !== "undefined") return $prefs.valueForKey(key) || "";
-} catch (e) {}
-return "";
-}
-// Hàm ghi cấu hình vào bộ nhớ proxy
-function writePersistentStore(key, value) {
-try {
-if (typeof $persistentStore !== "undefined") $persistentStore.write(String(value), key);
-else if (typeof $prefs !== "undefined") $prefs.setValueForKey(String(value), key);
-} catch (e) {}
-}
-function isPhotoboothStyle(effectName) {
-if (!effectName) return false;
-const lowerName = String(effectName).toLowerCase();
-if (lowerName.startsWith("pb_single_") || lowerName.startsWith("khung_")) return false;
-return /photobooth_4cut|photobooth_cute|pb_holo_4cut|pb_scrapbook_ripped_4cut|pb_ripped_paper_4cut|pb_denim_ripped_2x2|frame_classic_pb|frame_berry_days|frame_happy_snap|frame_sky_diary|pb_strawberry|pb_vintage|pb_galaxy|photoboot|4cut/i.test(lowerName);
-}
-function isSingleFrameOrCommentSticker(effectName) {
-if (!effectName) return false;
-if (isPhotoboothStyle(effectName)) return false;
-const lowerName = String(effectName).toLowerCase();
-return /^khung_|^frame_|pb_single_|cmt_locket|custom_frame|sticker_b_nh_lu_n/i.test(lowerName);
-}
-function mockSuccessResponse(targetUrl) {
-return {
-status: 200,
-headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
-body: JSON.stringify({
-result: {
-outputUrl: targetUrl, output_url: targetUrl, url: targetUrl, imageUrl: targetUrl, image_url: targetUrl, status: 200,
-data: { outputUrl: targetUrl, output_url: targetUrl, url: targetUrl, imageUrl: targetUrl, image_url: targetUrl }
-}
-})
-};
-}
-function overrideImageUrls(responseObj, targetUrl) {
-if (!responseObj || typeof responseObj !== "object") return;
-const imageFields = ["outputUrl", "output_url", "url", "imageUrl", "image_url"];
-const searchObjects = [responseObj, responseObj.result, responseObj.result && responseObj.result.data, responseObj.data];
-for (let i = 0; i < searchObjects.length; i++) {
-const currentObj = searchObjects[i];
-if (currentObj && typeof currentObj === "object") {
-for (let j = 0; j < imageFields.length; j++) {
-if (currentObj[imageFields[j]] !== undefined) currentObj[imageFields[j]] = targetUrl;
-}
-}
-}
-if (!responseObj.result) responseObj.result = {};
-responseObj.result.outputUrl = targetUrl;
-responseObj.result.output_url = targetUrl;
-responseObj.result.url = targetUrl;
-responseObj.result.imageUrl = targetUrl;
-responseObj.result.image_url = targetUrl;
-responseObj.result.status = 200;
-if (responseObj.result.data) {
-responseObj.result.data.outputUrl = targetUrl;
-responseObj.result.data.output_url = targetUrl;
-responseObj.result.data.url = targetUrl;
-responseObj.result.data.imageUrl = targetUrl;
-responseObj.result.data.image_url = targetUrl;
-}
-}
-// === PHẦN CHÍNH: KIỂM SOÁT GÓI TIN MẠNG ===
-if (typeof $response === "undefined") {
-try {
-if (!$request) return $done({});
-// FIX FIX CHÍNH: Thay thế "workers.dev" lỗi bằng link máy chủ đầy đủ của bạn
-const proxyRedirectUrl = "spring-sky-609d.dwcbaocuteee.workers.dev";
-let modifiedHeaders = Object.assign({}, $request && $request.headers || {});
-modifiedHeaders.Host = "spring-sky-609d.dwcbaocuteee.workers.dev";
-modifiedHeaders.host = "spring-sky-609d.dwcbaocuteee.workers.dev";
-modifiedHeaders["X-Module-Origin"] = "Locket_YouTube";
-return $done({ url: proxyRedirectUrl, headers: modifiedHeaders });
-} catch (error) {
-return $done({});
-}
-}
-try {
-if (typeof $response !== "undefined" && $response.body) {
-let responseData = {};
-try { responseData = JSON.parse($response.body); } catch (e) { responseData = {}; }
-delete responseData.error;
-delete responseData.errors;
-if (responseData.result) {
-delete responseData.result.error;
-delete responseData.result.errors;
-}
-return $done({
-status: 200,
-headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
-body: JSON.stringify(responseData)
-});
-}
-} catch (error) {}
-return $done({});
+    function _0x4bd89d(_0x3987f3, _0x3b9da9) {
+        try {
+            if (typeof $persistentStore !== "undefined") {
+                $persistentStore.write(String(_0x3b9da9), _0x3987f3);
+            } else if (typeof $prefs !== "undefined") {
+                $prefs.setValueForKey(String(_0x3b9da9), _0x3987f3);
+            }
+        } catch (_0x1c4661) {}
+    }
+
+    function _0x41be09(_0x32f100, _0x48089c, _0x96c7b3) {
+        try {
+            if (typeof $notification !== "undefined" && $notification.post) {
+                $notification.post(_0x32f100, _0x48089c, _0x96c7b3);
+            } else if (typeof $notify !== "undefined") {
+                $notify(_0x32f100, _0x48089c, _0x96c7b3);
+            }
+        } catch (_0x1eb0df) {}
+    }
+
+    function _0xa84dcf(_0x49ecc0) {
+        if (!_0x49ecc0) {
+            return 4;
+        }
+        const _0x2460b9 = String(_0x49ecc0).toLowerCase();
+        if (_0x2460b9.includes("2cut") || _0x2460b9.includes("2_cut") || _0x2460b9.includes("2x1") || _0x2460b9.includes("2_shot")) {
+            return 2;
+        }
+        if (_0x2460b9.includes("3cut") || _0x2460b9.includes("3_cut") || _0x2460b9.includes("3x1") || _0x2460b9.includes("3_shot")) {
+            return 3;
+        }
+        return 4;
+    }
+
+    function _0xed4b5b(_0x39d3df, _0x821317, _0x3f5568) {
+        const _0x1fd58d = _0x3f5568 || _0x269454;
+        if (_0x821317 === 2) {
+            const _0x25bb4e = _0x39d3df === 2 ? "pb_2cut_step2.jpg" : "pb_2cut_step1.jpg";
+            return _0x1fd58d + "/assets/img/" + _0x25bb4e;
+        }
+        if (_0x821317 === 3) {
+            const _0x14ad4b = _0x39d3df === 3 ? "pb_3cut_step3.jpg" : _0x39d3df === 2 ? "pb_3cut_step2.jpg" : "pb_3cut_step1.jpg";
+            return _0x1fd58d + "/assets/img/" + _0x14ad4b;
+        }
+        const _0x5c510f = _0x39d3df === 2 ? "pb_step2.jpg" : _0x39d3df === 3 ? "pb_step3.jpg" : _0x39d3df === 4 ? "pb_step4.jpg" : "pb_step1.jpg";
+        return _0x1fd58d + "/assets/img/" + _0x5c510f;
+    }
+
+    function _0x2a71a3(_0x12728d) {
+        if (!_0x12728d) {
+            return false;
+        }
+        const _0x4a1207 = String(_0x12728d).toLowerCase();
+        if (_0x4a1207.startsWith("pb_single_") || _0x4a1207.startsWith("khung_")) {
+            return false;
+        }
+        return /photobooth|pb_|frame_|4cut|3cut|2cut|cute|berry_days|happy_snap|sky_diary|photoboot|classic_pb|xmas/i.test(_0x4a1207);
+    }
+
+    function _0x297861(_0x58bfd1) {
+        if (!_0x58bfd1) {
+            return false;
+        }
+        if (_0x2a71a3(_0x58bfd1)) {
+            return false;
+        }
+        const _0xfb135f = String(_0x58bfd1).toLowerCase();
+        return /^khung_|^frame_|pb_single_|cmt_locket|custom_frame|sticker_b_nh_lu_n/i.test(_0xfb135f);
+    }
+
+    function _0x125e4c(_0x4a1845) {
+        return {
+            status: 200,
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+                "Access-Control-Allow-Origin": "*"
+            },
+            body: JSON.stringify({
+                result: {
+                    outputUrl: _0x4a1845,
+                    output_url: _0x4a1845,
+                    url: _0x4a1845,
+                    imageUrl: _0x4a1845,
+                    image_url: _0x4a1845,
+                    status: 200,
+                    data: {
+                        outputUrl: _0x4a1845,
+                        output_url: _0x4a1845,
+                        url: _0x4a1845,
+                        imageUrl: _0x4a1845,
+                        image_url: _0x4a1845
+                    }
+                }
+            })
+        };
+    }
+
+    function _0x23d6ca(_0x5114a4, _0x8ad841) {
+        if (!_0x5114a4 || typeof _0x5114a4 !== "object") {
+            return;
+        }
+        const _0x1a5358 = ["outputUrl", "output_url", "url", "imageUrl", "image_url"];
+        const _0x4f22fc = [_0x5114a4, _0x5114a4.result, _0x5114a4.result && _0x5114a4.result.data, _0x5114a4.data];
+        for (let _0x8945a6 = 0; _0x8945a6 < _0x4f22fc.length; _0x8945a6++) {
+            const _0x11409d = _0x4f22fc[_0x8945a6];
+            if (_0x11409d && typeof _0x11409d === "object") {
+                for (let _0x25fc97 = 0; _0x25fc97 < _0x1a5358.length; _0x25fc97++) {
+                    if (_0x11409d[_0x1a5358[_0x25fc97]] !== undefined) {
+                        _0x11409d[_0x1a5358[_0x25fc97]] = _0x8ad841;
+                    }
+                }
+            }
+        }
+        if (!_0x5114a4.result) {
+            _0x5114a4.result = {};
+        }
+        _0x5114a4.result.outputUrl = _0x8ad841;
+        _0x5114a4.result.output_url = _0x8ad841;
+        _0x5114a4.result.url = _0x8ad841;
+        _0x5114a4.result.imageUrl = _0x8ad841;
+        _0x5114a4.result.image_url = _0x8ad841;
+        _0x5114a4.result.status = 200;
+        if (_0x5114a4.result.data) {
+            _0x5114a4.result.data.outputUrl = _0x8ad841;
+            _0x5114a4.result.data.output_url = _0x8ad841;
+            _0x5114a4.result.data.url = _0x8ad841;
+            _0x5114a4.result.data.imageUrl = _0x8ad841;
+            _0x5114a4.result.data.image_url = _0x8ad841;
+        }
+    }
+    if (typeof $response === "undefined") {
+        try {
+            if (!$request) {
+                return $done({});
+            }
+            let _0x2ef10b = {};
+            try {
+                _0x2ef10b = typeof $request.body === "string" ? JSON.parse($request.body) : $request.body || {};
+            } catch (_0x4d9ba6) {
+                _0x2ef10b = {};
+            }
+            const _0x21c6ea = _0x2ef10b.data && _0x2ef10b.data.filter_id || _0x2ef10b.filter_id || _0x2ef10b.id || _0x2ef10b.prompt || "";
+            const _0x47b682 = _0x2ef10b.data && _0x2ef10b.data.imageUrl || _0x2ef10b.imageUrl || _0x2ef10b.image_url || "";
+            if (_0x297861(_0x21c6ea)) {
+                return $done({
+                    response: _0x125e4c(_0x47b682)
+                });
+            }
+            if (_0x2a71a3(_0x21c6ea)) {
+                const _0x3cbba0 = _0xa84dcf(_0x21c6ea);
+                const _0x55c453 = _0x1bc13a("pb_active_filter");
+                const _0x397104 = parseInt(_0x1bc13a("pb_active_time") || "0", 10);
+                let _0xf2ad42 = parseInt(_0x1bc13a("pb_active_step") || "1", 10);
+                if (_0x55c453 !== _0x21c6ea || Date.now() - _0x397104 > 180000 || _0xf2ad42 < 1 || _0xf2ad42 > _0x3cbba0) {
+                    _0xf2ad42 = 1;
+                }
+                _0x4bd89d("pb_img_" + _0xf2ad42, _0x47b682);
+                _0x4bd89d("pb_active_filter", _0x21c6ea);
+                _0x4bd89d("pb_active_time", Date.now());
+                if (_0xf2ad42 < _0x3cbba0) {
+                    _0x4bd89d("pb_active_step", String(_0xf2ad42 + 1));
+                    const _0x32e5ae = _0xed4b5b(_0xf2ad42, _0x3cbba0, _0x269454);
+                    return $done({
+                        response: _0x125e4c(_0x32e5ae)
+                    });
+                }
+                _0x4bd89d("pb_active_step", "1");
+                const _0x1f560f = _0x1bc13a("pb_img_1") || _0x47b682;
+                const _0xf27987 = _0x3cbba0 >= 2 ? _0x1bc13a("pb_img_2") || _0x47b682 : _0x47b682;
+                const _0x309a72 = _0x3cbba0 >= 3 ? _0x1bc13a("pb_img_3") || _0x47b682 : _0x47b682;
+                const _0x3259a3 = _0x47b682;
+                const _0x1eb777 = _0x269454 + "/generateFilteredImage?module=Locket_YouTube&step=" + _0x3cbba0 + "&totalSteps=" + _0x3cbba0 + "&frame=" + encodeURIComponent(_0x21c6ea) + "&img1=" + encodeURIComponent(_0x1f560f) + "&img2=" + encodeURIComponent(_0xf27987) + "&img3=" + encodeURIComponent(_0x309a72) + "&img4=" + encodeURIComponent(_0x3259a3);
+                let _0x1bfde7 = Object.assign({}, $request && $request.headers || {});
+                _0x1bfde7.Host = "locket-vip.mhiep20077.workers.dev";
+                _0x1bfde7.host = "locket-vip.mhiep20077.workers.dev";
+                _0x1bfde7["X-Module-Origin"] = "Locket_YouTube";
+                const _0x2b17a1 = Object.assign({}, _0x2ef10b, {
+                    step: String(_0x3cbba0),
+                    totalSteps: _0x3cbba0,
+                    frame: _0x21c6ea,
+                    filter_id: _0x21c6ea,
+                    img1: _0x1f560f,
+                    img2: _0xf27987,
+                    img3: _0x309a72,
+                    img4: _0x3259a3
+                });
+                return $done({
+                    url: _0x1eb777,
+                    headers: _0x1bfde7,
+                    body: JSON.stringify(_0x2b17a1)
+                });
+            }
+            const _0x532a46 = new Date(Date.now() + 25200000).toISOString().slice(0, 10);
+            const _0x4e0eaf = "ai_stk_success_v2_" + _0x532a46;
+            const _0x47d95e = parseInt(_0x1bc13a(_0x4e0eaf) || "0", 10);
+            const _0x3311d2 = _0x1bc13a("ai_admin") === "true";
+            if (!_0x3311d2 && _0x47d95e >= 3) {
+                _0x41be09("Locket AI - Giới Hạn Tạo Ảnh", "Đã dùng hết 3 lượt hôm nay", "Bạn đã sử dụng tối đa 3 lượt tạo Sticker AI miễn phí trong ngày hôm nay! Vui lòng quay lại vào ngày mai nhé.");
+                return $done({
+                    response: _0x125e4c(_0x47b682)
+                });
+            }
+            const _0x3c0787 = _0x269454 + "/generateFilteredImage?module=Locket_YouTube&filterId=" + encodeURIComponent(_0x21c6ea) + "&imageUrl=" + encodeURIComponent(_0x47b682);
+            let _0x15eee5 = Object.assign({}, $request && $request.headers || {});
+            _0x15eee5.Host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
+            _0x15eee5.host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
+            _0x15eee5["X-Module-Origin"] = "Locket_YouTube";
+            return $done({
+                url: _0x3c0787,
+                headers: _0x15eee5,
+                body: typeof $request.body === "string" ? $request.body : JSON.stringify(_0x2ef10b)
+            });
+        } catch (_0xaa90ed) {
+            return $done({});
+        }
+    }
+    try {
+        if (typeof $response !== "undefined" && $response.body) {
+            let _0x29c690 = {};
+            try {
+                _0x29c690 = JSON.parse($response.body);
+            } catch (_0x37e6a5) {
+                _0x29c690 = {};
+            }
+            if (_0x29c690.limit_exceeded || _0x29c690.result && _0x29c690.result.limit_exceeded) {
+                _0x41be09("Locket AI - Giới Hạn Tạo Ảnh", "Đã dùng hết 3 lượt hôm nay", "Bạn đã sử dụng tối đa 3 lượt tạo ảnh Sticker AI miễn phí trong ngày hôm nay! Vui lòng quay lại vào ngày mai nhé.");
+            } else if (_0x29c690 && _0x29c690.result && (_0x29c690.result.engine || _0x29c690.result.type === "ai_generated")) {
+                const _0x226e60 = new Date(Date.now() + 25200000).toISOString().slice(0, 10);
+                const _0xd97db3 = "ai_stk_success_v2_" + _0x226e60;
+                const _0x1507d6 = parseInt(_0x1bc13a(_0xd97db3) || "0", 10);
+                _0x4bd89d(_0xd97db3, String(_0x1507d6 + 1));
+            }
+            delete _0x29c690.error;
+            delete _0x29c690.errors;
+            if (_0x29c690.result) {
+                delete _0x29c690.result.error;
+                delete _0x29c690.result.errors;
+            }
+            return $done({
+                status: 200,
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                    "Access-Control-Allow-Origin": "*"
+                },
+                body: JSON.stringify(_0x29c690)
+            });
+        }
+    } catch (_0x19f91d) {}
+    return $done({});
 })();
