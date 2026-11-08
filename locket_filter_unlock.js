@@ -12,7 +12,7 @@
     4. Gỡ bỏ hoàn toàn mã lỗi (402, 403), gỡ che mờ ảnh (unblur) và cờ khóa đòi Gold trên filter/moment.
 ***********************************************/
 
-const WORKER_HOST = "https://locket-vip.mhiep20077.workers.dev";
+const WORKER_HOST = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
 const VIP_STORE_KEY = "LOCKET_VIP_COMMUNITY";
 const SELF_UID_KEY = "LOCKET_SELF_UID";
 const SELF_USERNAME_KEY = "LOCKET_SELF_USERNAME";
