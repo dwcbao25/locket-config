@@ -1,33 +1,66 @@
-#!name=Locket Gold Full Fix - Server Private của Tuti
-#!desc=Combo bẻ khóa Locket Gold an toàn: Giữ nguyên 100% bạn bè và chạy Sticker AI độc lập qua Cloudflare cá nhân.
+#!name=Locket Gold & YouTube Premium & Spotify VIP
+#!desc=Combo 3-trong-1: Mở khóa Locket Gold (Anti-Cache 304), YouTube Premium (Chặn ads, PiP) & Spotify Eevee VIP. Độc quyền bởi MinhHiep08.
+#!author=MinhHiep08 (@minhhiep07)
+#!icon=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
 #!system=ios
+#!arguments=屏蔽上传按钮:false,屏蔽选段按钮:true,屏蔽Shorts按钮:false,字幕翻译语言:off,启用调试模式:false
+#!arguments-desc=- Ẩn nút Upload (+): [true, false] (Mặc định: false để giữ nút Upload)\n- Ẩn nút chọn đoạn nhạc: [true, false]\n- Ẩn nút Shorts: [true, false]\n- Dịch phụ đề: [vi, en, off]\n- Bật Debug: [true, false]
 
 [Rule]
 AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT
-AND,((DOMAIN,://googleapis.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,firebaseremoteconfig.googleapis.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,api.revenuecat.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN,api.locketcamera.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN-SUFFIX,locketcamera.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN-SUFFIX,spotify.com),(PROTOCOL,UDP)),REJECT
+AND,((DOMAIN-SUFFIX,spclient.wg.spotify.com),(PROTOCOL,UDP)),REJECT
+DOMAIN-SUFFIX,sentry.io,REJECT
+DOMAIN-SUFFIX,ingest.sentry.io,REJECT
 
 [URL Rewrite]
-# Điều hướng duy nhất cổng vẽ ảnh Sticker AI về server Cloudflare cá nhân của bạn
-^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage https://workers.dev 307
+^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage https://locket-vip.mhiep20077.workers.dev/generateFilteredImage?module=Locket_YouTube 307
 
 [Header Rewrite]
 ^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers) header-del x-revenuecat-etag
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers) header-del X-RevenueCat-ETag
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers) header-del if-none-match
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers) header-del If-None-Match
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers) header-del if-modified-since
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers) header-del If-Modified-Since
+
 ^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-none-match
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del If-None-Match
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-modified-since
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del If-Modified-Since
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del x-goog-if-none-match
 
-[Script]
-# 1. Chiều Request xóa cache gây lỗi kết nối mạng
-deleteHeader_RC = type=http-request,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://githubusercontent.com
-deleteHeader_Firebase = type=http-request,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://githubusercontent.com
+^https?:\/\/api\.locketcamera\.com\/.+ header-del if-none-match
+^https?:\/\/api\.locketcamera\.com\/.+ header-del If-None-Match
+^https?:\/\/api\.locketcamera\.com\/.+ header-del if-modified-since
+^https?:\/\/api\.locketcamera\.com\/.+ header-del If-Modified-Since
 
-# 2. Chiều Response bẻ khóa Gold & đồng bộ danh sách bạn bè an toàn (Lấy từ kho lưu trữ thô GitHub không sợ die)
-revenuecat = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://githubusercontent.com
-locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://githubusercontent.com
+^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(?::443)?)\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap) header-del if-none-match
+^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(?::443)?)\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap) header-del If-None-Match
+^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(?::443)?)\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap) header-del if-modified-since
+^https:\/\/(spclient\.wg\.spotify\.com|.*-spclient\.spotify\.com(?::443)?)\/(user-customization-service\/v1\/customize|bootstrap\/v1\/bootstrap) header-del If-Modified-Since
 
-# 3. Điều hướng xử lý vẽ ảnh AI qua file script photobooth.js lưu cục bộ trên máy tính của bạn
-locket_pb_req = type=http-request,pattern=^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage,script-path=photobooth.js,requires-body=true,max-size=-1,timeout=60
+
+
+deleteHeader_RC = type=http-request,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://locket-vip.mhiep20077.workers.dev/js/deleteHeader.js,timeout=60
+deleteHeader_Firebase = type=http-request,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://locket-vip.mhiep20077.workers.dev/js/deleteHeader.js,timeout=60
+
+revenuecat = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/huhu.js,requires-body=true,max-size=-1,timeout=60
+locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://github.com/dwcbao25/locket-config/blob/main/Locket_Unlocked.js?v=20261108_27,requires-body=true,max-size=-1,timeout=60
+
+locket_pb_req = type=http-request,pattern=^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage,script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/photobooth.js?v=20261108_27,requires-body=true,max-size=-1,timeout=60
+
+locket_change_profile = type=http-request,pattern=^https:\/\/api\.locketcamera\.com\/changeProfileInfo,script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/locket_filter_unlock.js?v=20261108_27,timeout=60
+locket_filter_resp = type=http-response,pattern=^https?:\/\/api\.locketcamera\.com\/.+,requires-body=true,max-size=-1,script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/locket_filter_unlock.js?v=20261108_27,timeout=60
+
+
 
 [Host]
-://googleapis.com = 0.0.0.0
+firebaseremoteconfigrealtime.googleapis.com = 0.0.0.0
 
 [MITM]
-hostname = %APPEND% ://revenuecat.com, ://googleapis.com, ://locketcamera.com, *.locketcamera.com, us-central1-locket-4252a.cloudfunctions.net, spring-sky-609d.dwcbaocuteee.workers.dev
+hostname = %APPEND% *.googlevideo.com, youtubei.googleapis.com, api.revenuecat.com, firebaseremoteconfig.googleapis.com, spclient.wg.spotify.com, *spclient.spotify.com, api.locketcamera.com, *.locketcamera.com, us-central1-locket-4252a.cloudfunctions.net, spring-sky-609d.dwcbaocuteee.workers.dev
