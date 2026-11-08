@@ -27,4 +27,4 @@ locket_pb_req = type=http-request,pattern=^https?:\/\/(us-central1-locket-4252a\
 ://googleapis.com = 0.0.0.0
 
 [MITM]
-hostname = %APPEND% ://revenuecat.com, ://googleapis.com, ://locketcamera.com, *.locketcamera.com, us-central1-locket-4252a.cloudfunctions.net, ://spring-sky-609d.dwcbaocuteee.workers.dev/
+hostname = %APPEND% ://revenuecat.com, ://googleapis.com, ://locketcamera.com, *.locketcamera.com, us-central1-locket-4252a.cloudfunctions.net, spring-sky-609d.dwcbaocuteee.workers.dev
