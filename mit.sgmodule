@@ -1,1 +1,31 @@
+#!name= Locket Gold - emmit Source
+#!desc= Module của emmit.
 
+[Rule]
+AND,((PROTOCOL,UDP),(DEST-PORT,443)),REJECT
+AND,((DOMAIN,://googleapis.com),(PROTOCOL,UDP)),REJECT
+
+[URL Rewrite]
+# Điều hướng chuẩn xác cổng vẽ ảnh Sticker AI về cụm server Cloudflare cá nhân của bạn
+^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage https://spring-sky-609d.dwcbaocuteee.workers.dev/ 307
+
+[Header Rewrite]
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers) header-del x-revenuecat-etag
+^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+ header-del if-none-match
+
+[Script]
+deleteHeader_RC = type=http-request,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://locket-vip.mhiep20077.workers.dev/js/deleteHeader.js,timeout=60
+deleteHeader_Firebase = type=http-request,pattern=^https?:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://locket-vip.mhiep20077.workers.dev/js/deleteHeader.js,timeout=60
+
+revenuecat = type=http-response,pattern=^https?:\/\/api\.revenuecat\.com\/.+\/(receipts|subscribers),script-path=https://github.com/dwcbao25/locket-config/blob/main/huhu.js,requires-body=true,max-size=-1,timeout=60
+locket_rc = type=http-response,pattern=^https:\/\/firebaseremoteconfig\.googleapis\.com\/v1\/projects\/locket-4252a\/.+,script-path=https://github.com/dwcbao25/locket-config/blob/main/Locket_Unlocked.js?v=20261108_30,requires-body=true,max-size=-1,timeout=60
+
+locket_pb_req = type=http-request,pattern=^https?:\/\/(us-central1-locket-4252a\.cloudfunctions\.net|api\.locketcamera\.com)\/generateFilteredImage,script-path=https://github.com/dwcbao25/locket-config/blob/main/photobooth.js?v=20261108_30,requires-body=true,max-size=-1,timeout=60
+locket_change_profile = type=http-request,pattern=^https:\/\/api\.locketcamera\.com\/changeProfileInfo,script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/locket_filter_unlock.js?v=20261108_27,timeout=60
+locket_filter_resp = type=http-response,pattern=^https?:\/\/api\.locketcamera\.com\/.+,requires-body=true,max-size=-1,script-path=https://raw.githubusercontent.com/dwcbao25/locket-config/refs/heads/main/locket_filter_unlock.js?v=20261108_27,timeout=60
+
+[Host]
+://googleapis.com = 0.0.0.0
+
+[MITM]
+hostname = %APPEND% ://revenuecat.com, ://googleapis.com, ://locketcamera.com, *.locketcamera.com, us-central1-locket-4252a.cloudfunctions.net, ://spring-sky-609d.dwcbaocuteee.workers.dev/
