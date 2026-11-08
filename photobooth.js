@@ -1,5 +1,5 @@
 (function () {
-  const SERVER_URL = "https://locket-vip.mhiep20077.workers.dev/";
+  const SERVER_URL = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
 
   // Mảng ánh xạ mã sticker của Locket sang tên hiệu ứng AI tương ứng
   const stickerMapping = {
@@ -311,8 +311,8 @@ return $done({});
 }
 const proxyRedirectUrl = "workers.dev";
 let modifiedHeaders = Object.assign({}, $request && $request.headers || {});
-modifiedHeaders.Host = "locket-vip.mhiep20077.workers.dev";
-modifiedHeaders.host = "locket-vip.mhiep20077.workers.dev";
+modifiedHeaders.Host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
+modifiedHeaders.host = "https://spring-sky-609d.dwcbaocuteee.workers.dev/";
 modifiedHeaders["X-Module-Origin"] = "Locket_YouTube";
 return $done({
 url: proxyRedirectUrl,
